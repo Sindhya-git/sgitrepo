@@ -41,7 +41,7 @@
   <body >
  <div class="panel">
   <h1 style="color:black;text-align:center;font-family:French script MT;padding-top: 45px;
-  padding-right: 100px;background-image: url('C:/Kapy/static/index.jpg');font-size:300%">KOOL-GENZ</h1> 
+  padding-right: 100px;background-image: url('static/index.jpg');font-size:300%">KOOL-GENZ</h1> 
  </div>
  
   <div class="topnav">
@@ -93,13 +93,13 @@
  <div class="shirt-container">
 	 
     <div class="flex-container">
-      {% for product in shirts %}
+      {% for product in womcol %}
       
         
                     <div class="card">
                          <a href="/{{product.FAMILY_NAME}}?view={{product.ITEM_NUMBER}}">
                             <div class="card-img-top_{{product.CLASS_NAME}}"
-                                 style="background: url('C:/Kapy/static/shirt.jpg'); background-repeat:no-repeat; height:200px;width:200% ">
+                                 style="background: url('static/{{product.ITEM_NUMBER}}.jpg'); background-repeat:no-repeat; height:200px;width:200% ">
                             </div>
                          </a>
                         
