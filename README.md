@@ -1,2 +1,0 @@
-# samplemysql
-samplemysql
