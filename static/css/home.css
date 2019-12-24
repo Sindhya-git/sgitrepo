@@ -11,10 +11,11 @@ body {
 
 .topnav a {
   float :left;
+  display: block;
   color: black;
   text-align: center;
-  padding: 20px 20px;
   text-decoration: none;
+  padding: 20px 20px;
   font-size: 17px;
 }
 
@@ -28,108 +29,69 @@ body {
   color: white;
 }
 
-.topnav input[type=text] {
+.topnav .search-container {
   float: right;
+}
+
+.topnav input[type=text] {
   padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  border: none;
+  margin-top: 10px;
+  width : 250px;
+  height: 36px;
   font-size: 17px;
+  border: black;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 10px;
+  margin-right: 16px;
+  height: 36px;
+  background: #69e7f0;
+  font-size: 17px;
+  border: black;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a, .topnav input[type=text] {
+  .topnav .search-container {
+    float: none;
+  }
+
+.topnav a, .topnav input[type=text], .topnav .search-container button {
     float: none;
     display: block;
     text-align: left;
-    width: 40%;
+    width: 100%;
     margin: 0;
     padding: 14px;
-    left: 80%;
   }
-  
   .topnav input[type=text] {
-    border: 1px solid #ccc;  
+    border: 3px solid black;  
   }
 }
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
 
-.searchTerm {
-  width: 40px;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  left: 80%;
-  height: 36px;
-  outline: none;
-  color: #9DBFAF;
-}
+.carousel-inner > .item > img{
+ width: 400px;
+ height: 400px;
+ margin: auto; 
+ align-items:center;justify-content: center;
+ }
+div.caro-container {
+  width:600px;
+  height:2000px;
+  margin: auto;
+  }
 
-.searchTerm:focus{
-  color: #00B4CC;
-}
 
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/*Resize the wrap to adjust position of the search bar change!*/
-.wrap{
-  width: 40%;
-  position: absolute;
-  top: 23%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 17px;  
-  border: none;
-  outline: none;
-  padding: 20px 20px;
-  background-color: inherit;
-  font-family: inherit;
-}
 
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #85b0e4;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
 
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
