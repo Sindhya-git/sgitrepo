@@ -46,6 +46,12 @@ def home_page():
  # Close Connection
     cur1.close()
     return render_template('home.html', shirts=shirts)
+  
+@application.route("/women")
+def womens_page():
+  print ("in womens page",)
+  return render_template('Womens.html')
+  
 
 @application.route('/search', methods=['POST', 'GET'])
 def search():
