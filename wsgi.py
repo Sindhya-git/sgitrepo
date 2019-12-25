@@ -69,22 +69,25 @@ def mens_page():
   curm.close()
   return render_template('Mens.html', mencol=mcollection)
 
-@application.route("/men/<bname>")
-def mens_page():
-  print ("in mens page",)
-  print ("bname is :", bname)
-  curm = mysql.connection.cursor()
-  query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
-  query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
-  query3 = " AND s.CATALOGUE_CATEGORY IN (53102902,53102901,53103201,53103101,53101902) AND s.DESCRIPTION not LIKE '%Women%'"
-  curmquery = query1 + query2 + query3 
-  print("curmquery is:",curmquery)
-  curm.execute(curmquery) 
-  mcollection = curm.fetchall()
-  print("mcollection is :",mcollection)
+@application.route("/men/")
+def mensbrand_page():
+  print ("in mensbrand page",)
+  if 'view' in request.args:
+    
+    bname = request.args['view']
+    print ("brand name is :", bname)
+    curbm = mysql.connection.cursor()
+    query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
+    query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
+    query3 = " AND s.CATALOGUE_CATEGORY IN (53102902,53102901,53103201,53103101,53101902) AND s.DESCRIPTION not LIKE '%Women% AND s.DESCRIPTION LIKE %s"
+    curbmquery = query1 + query2 + query3 
+    print("curbmquery is:",curbmquery)
+    curbm.execute(curbmquery,('%' + bname + '%',)) 
+    bmcollection = curbm.fetchall()
+    print("mcollection is :",mcollection)
  # Close Connection
-  curm.close()
-  return render_template('Mens.html', mencol=mcollection)
+    curbm.close()
+    return render_template('Mens.html', mencol=bmcollection)
 
 
 
