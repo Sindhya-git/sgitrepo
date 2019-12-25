@@ -99,7 +99,7 @@ def girls_page():
   gcollection = curg.fetchall()
   print("gcollection is :",gcollection)
  # Close Connection
-  curb.close()
+  curg.close()
   return render_template('Girls.html', girlscol=gcollection)
   
 
