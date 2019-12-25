@@ -1,192 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Search page</title>
-  <!--<link rel="stylesheet" href="{{ url_for('static',     filename='css/home.css') }}">
-  </link> -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <!--link rel="stylesheet" href="C:/Kapy/static/css/home.css"> -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css"> 
+  
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-.topnav {
-  overflow: hidden;
-  background-color: #afecf7;
-}
-
-.topnav a {
-  float :left;
-  color: black;
-  text-align: center;
-  padding: 20px 20px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #85b0e4;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #1e6dcb;
-  color: white;
-}
-
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
-
-.searchTerm {
-  width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  height: 36px;
-  outline: none;
-  color: #9DBFAF;
-}
-
-.searchTerm:focus{
-  color: #00B4CC;
-}
-
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/*Resize the wrap to adjust position of the search bar change!*/
-.wrap{
-  width: 40%;
-  position: absolute;
-  top: 23%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-}
-
-.chkbox-container{
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translate(-50%, -50%);
-}
-
-.radio-container{
-  position: absolute;
-  top: 80%;
-  left: 5%;
-  transform: translate(-50%, -50%);
-}
-
 .shirt-container{
   position: absolute;
   top: 35%;
   left: 20%;
   }
 
-.vl {
-  border-left: 1px solid grey;
-  height: 400px;
-  position: absolute;
-  left: 20%;
-  margin-left: -3px;
-  top: 35%;
-}
-
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 17px;  
-  border: none;
-  outline: none;
-  padding: 20px 20px;
-  background-color: inherit;
-  font-family: inherit;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #85b0e4;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-  max-width: 100%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 200px;
-}
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    -ms-flex: 50%;
-    flex: 50%;
-    max-width: 100%;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    -ms-flex: 100%;
-    flex: 100%;
-    max-width: 100%;
-  }
-}
 </style>
 
 </head>
@@ -195,90 +26,21 @@ body {
   <h1 style="color:black;text-align:center;font-family:French script MT;padding-top: 45px;
   padding-right: 100px;background-image: url('static/index.jpg');font-size:300%">KOOL-GENZ</h1> 
  </div>
- 
+	  
  <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <!-- a href="#men">Men</a> -->
-  	<div class="dropdown">
-  		<button class="dropbtn">Men</button>
-  			<div class="dropdown-content">
-			    <a href="#">Clothing</a>
-			    <a href="#">Footwear</a>
-			    <a href="#">Luggage/Handbags</a>
-		    </div>
-	</div>
-  <!--a href="#Women">Women</a>  
-  <a href="#Boys">Boys</a>
-  <a href="#Girls">Girls</a>
-  <a href="#Infants">Infants</a> -->
-  <div class="dropdown">
-  		<button class="dropbtn">Women</button>
-  			<div class="dropdown-content">
-			    <a href="#">Clothing</a>
-			    <a href="#">Footwear</a>
-			    <a href="#">Luggage/Handbags</a>
-		    </div>
-	</div>
-  <div class="dropdown">
-  		<button class="dropbtn">Boys</button>
-  			<div class="dropdown-content">
-			    <a href="#">Clothing</a>
-			    <a href="#">Footwear</a>
-			    <a href="#">Luggage/Handbags</a>
-		    </div>
-  </div> 
-  <div class="dropdown">
-  		<button class="dropbtn">Girls</button>
-  			<div class="dropdown-content">
-			    <a href="#">Clothing</a>
-			    <a href="#">Footwear</a>
-			    <a href="#">Luggage/Handbags</a>
-		    </div>
+  		<a class="active" href="/home">Home</a>
+  		<a href="/men">Men</a>
+  		<a href="/women">Women</a>
+  		<a href="/boys">Boys</a>
+  		<a href="/girls">Girls</a>
+  		<div class="search-container">
+			<form action="/search" method="get" >
+   	       		<input type="text" class="searchTerm" name="q" placeholder="What will you shop for today?">
+      	       	<button type="submit"><i class="fa fa-search"></i></button>
+   			</form>
+  		</div>
   </div>
-
-
- <div class="dropdown">
-  		<button class="dropbtn">Infants</button>
-  			<div class="dropdown-content">
-			    <a href="#">Clothing</a>
-			    <a href="#">Footwear</a>
-			    <a href="#">Luggage/Handbags</a>
-		    </div>
- </div>
- <div class="wrap">
-  <form action="/search" method="get" >
-   <div class="search">
-      <input type="text" class="searchTerm" name="q" placeholder="What will you shop for today?">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
-    </div>
-   </form> 
-</div>
  
-</div>
-
-<div class="chkbox-container">
-     <h4>BRANDS</h4>  
-	 <input type="checkbox" name="Reflex" value="VReflex"> REFLEX<br>
-	 <input type="checkbox" name="Mlanm" value="VMlanm"> MLANM<br>
-     <input type="checkbox" name="Gildan" value="VGildan" > GILDAN<br> 
-     <input type="checkbox" name="Iwollence" value="VIwollence"> IWOLLENCE<br> 
-     <input type="checkbox" name="Workforce" value="VWorkforce"> WORKFORCE<br> 
-     <input type="checkbox" name="Paul Jones" value="VPaul Jones"> PAUL JONES<br> 
-     <input type="checkbox" name="Mushare" value="VMushare" > MUSHARE<br> 
-     <input type="checkbox" name="Reaction kenneth cole" value="VReaction kenneth cole"> REACTION KENNETH COLE<br> 
-</div>
-
-<div class="radio-container">
-	<h4>PRICE</h4>  
-	<input type="radio" name="price" value="Vfhred"> <500<br>
-    <input type="radio" name="price" value="Vthou"> 500 - 1000<br>
-    <input type="radio" name="price" value="Vthoufiv"> > 1000<br>  
-</div>
-
-<div class="vl"></div>
-
  <div class="shirt-container">
     <div class="row">
       <div class="column">
@@ -287,11 +49,11 @@ body {
 	{% else  %}
       	{% for product in product_srch %}
 	
-        	<div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card mb-4">
+        	<div class="col-4">
+                    <div class="card">
                          <a href="/{{product.FAMILY_NAME}}?view={{product.CLASS}}">
                             <div class="card-img-top_{{product.CLASS_NAME}}"
-                                 style="background: url('static/{{product.ITEM_NUMBER}}.jpg'); background-repeat:no-repeat; height:200px;width:100% ">
+                                 style="background: url('static/{{product.ITEM_NUMBER}}.jpg'); background-repeat:no-repeat; height:200px;width:100%;hspace="30" ">
                             </div>
                          </a>
                         <div class="card-body">
