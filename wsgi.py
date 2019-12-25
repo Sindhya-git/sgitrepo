@@ -18,15 +18,6 @@ application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Initialize the app for use with this MySQL class
 mysql.init_app(application)
 
-def my_view(request):
-  print ("in my_view",)
-  if request.method == "POST":
-        display_type = request.POST.get("chkbox", None)
-        if chkbox in ["Reflex"]:
-          print("reflex checked",)
-        if chkbox in ["VMlanm"]:
-          print("mlanm checked",)
-         
 
 @application.route("/")
 def home_page():
@@ -77,6 +68,25 @@ def mens_page():
  # Close Connection
   curm.close()
   return render_template('Mens.html', mencol=mcollection)
+
+@application.route("/men/<bname>")
+def mens_page():
+  print ("in mens page",)
+  print ("bname is :", bname)
+  curm = mysql.connection.cursor()
+  query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
+  query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
+  query3 = " AND s.CATALOGUE_CATEGORY IN (53102902,53102901,53103201,53103101,53101902) AND s.DESCRIPTION not LIKE '%Women%'"
+  curmquery = query1 + query2 + query3 
+  print("curmquery is:",curmquery)
+  curm.execute(curmquery) 
+  mcollection = curm.fetchall()
+  print("mcollection is :",mcollection)
+ # Close Connection
+  curm.close()
+  return render_template('Mens.html', mencol=mcollection)
+
+
 
 @application.route("/boys")
 def boys_page():
