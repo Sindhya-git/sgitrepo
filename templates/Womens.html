@@ -9,24 +9,15 @@
   <!--link rel="stylesheet" href="C:/Kapy/static/css/home.css"> -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   
-<style>
 
+<style>
 .shirt-container{
   position: absolute;
   top: 35%;
   left: 20%;
   }
-
-.vl {
-  border-left: 1px solid grey;
-  height: 400px;
-  position: absolute;
-  left: 20%;
-  margin-left: -3px;
-  top: 35%;
-}
-
 .container {
   list-style-type: none;
   padding-left: 20;
@@ -35,11 +26,17 @@
   height:200px;
 }
 
+.flex-container > div >a >img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  
+}
+	
 .flex-container {
   display: flex;
   flex-wrap: wrap;
   }
-
 /* Create four equal columns that sits next to each other */
 .flex-container > div {
   width: 200px;
@@ -54,7 +51,7 @@
   padding-right: 100px;background-image: url('static/index.jpg');font-size:300%">KOOL-GENZ</h1> 
  </div>
  
-  <div class="topnav">
+ <div class="topnav">
   		<a class="active" href="/home">Home</a>
   		<a href="/men">Men</a>
   		<a href="/women">Women</a>
@@ -67,37 +64,31 @@
    			</form>
   		</div>
     </div>
- 
-  <div class="container">
+
+<div class="container">
    	<div class="row">
    		<div class="col-list">
-        	<h1>BRANDS</h1>
+        		<h4>BRANDS</h4>
 		        <div class="list-group">
-        			<a href="/Women/Reflex" class="list-group-item">REFLEX</a>
-			        <a href="/Women/MLANM" class="list-group-item">MLANM</a>
-			        <a href="/Women/Gildan" class="list-group-item">GILDAN</a>
-			        <a href="/Women/Workforce" class="list-group-item">WORKFORCE</a>
-			        <a href="/Women/Pauljones" class="list-group-item">PAUL JONES</a>
-			        <a href="/Women/Kennethcole" class="list-group-item">KENNETH COLE</a>
-		        </div>
-        </div>
+        			<a href="/women/Reflex" class="list-group-item">REFLEX</a>
+			        <a href="/women/MLANM" class="list-group-item">IWOLLENCE</a>
+			        <a href="/women/MUSHARE" class="list-group-item">MUSHARE</a>
+			        <a href="/women/Workforce" class="list-group-item">WORKFORCE</a>
+			</div>
+        	</div>
   	</div>
-   </div>
-
-<div class="vl"></div>
+  </div>
 
  <div class="shirt-container">
     <div class="flex-container">
       {% for product in womcol %}
                  <div class="card">
                          <a href="/{{product.FAMILY_NAME}}?view={{product.ITEM_NUMBER}}">
-                            <div class="card-img-top_{{product.CLASS_NAME}}"
-                                 style="background: url('static/{{product.ITEM_NUMBER}}.jpg'); background-repeat:no-repeat; height:200px;width:80%;hspace="30" ">
-                            </div>
+                            <img src='static/{{product.ITEM_NUMBER}}.jpg' width=150px>
                          </a>
                         
                             <h5><a href="/">{{product.DESCRIPTION}}</a> </h5>
-                            <h4>{{product.LIST_PRICE}}</h4>
+                            <h5>{{product.LIST_PRICE}}</h5>
                    </div>
       {% endfor %}
     </div>
