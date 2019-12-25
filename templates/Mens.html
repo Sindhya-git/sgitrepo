@@ -21,15 +21,6 @@
   left: 20%;
   }
 
-.vl {
-  border-left: 1px solid grey;
-  height: 400px;
-  position: absolute;
-  left: 20%;
-  margin-left: -3px;
-  top: 35%;
-}
-
 .container {
   list-style-type: none;
   padding-left: 20;
@@ -81,7 +72,7 @@
    <div class="container">
    	<div class="row">
    		<div class="col-list">
-        	<h5>BRANDS</h5>
+        	<h4>BRANDS</h4>
 		        <div class="list-group">
         			<a href="/men/Reflex" class="list-group-item">REFLEX</a>
 			        <a href="/men/MLANM" class="list-group-item">MLANM</a>
@@ -95,16 +86,15 @@
   </div>
 
  
-<div class="vl"></div>
-
  <div class="shirt-container">
     <div class="flex-container">
       {% for product in mencol %}
                     <div class="card">
+			 <a href="/{{product.FAMILY_NAME}}?view={{product.ITEM_NUMBER}}">
 			 <img src='static/{{product.ITEM_NUMBER}}.jpg' width=150px>
                           <h5><a href="/">{{product.DESCRIPTION}}</a> </h5>
-                          <h4>${{product.LIST_PRICE}}</h4>
-
+                          <h5>${{product.LIST_PRICE}}</h5>
+			  </a>
                    </div>
       {% endfor %}
     </div>
