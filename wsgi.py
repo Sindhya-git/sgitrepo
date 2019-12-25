@@ -77,6 +77,30 @@ def mens_page():
  # Close Connection
   curm.close()
   return render_template('Mens.html', mencol=mcollection)
+
+@application.route("/boys")
+def boys_page():
+  print ("in boys page",)
+  curb = mysql.connection.cursor()
+  curbquery = "SELECT FAMILY_NAME,CLASS_NAME,COMMODITY,COMMODITY_NAME FROM XXIBM_PRODUCT_CATALOGUE WHERE COMMODITY_NAME LIKE '%Boys%' "
+  curb.execute(curbquery) 
+  bcollection = curb.fetchall()
+  print("bcollection is :",bcollection)
+ # Close Connection
+  curb.close()
+  return render_template('Boys.html', boyscol=bcollection)
+
+@application.route("/girls")
+def girls_page():
+  print ("in girls page",)
+  curg = mysql.connection.cursor()
+  curgquery = "SELECT FAMILY_NAME,CLASS_NAME,COMMODITY,COMMODITY_NAME FROM XXIBM_PRODUCT_CATALOGUE WHERE COMMODITY_NAME LIKE '%girl%' "
+  curg.execute(curgquery) 
+  gcollection = curg.fetchall()
+  print("gcollection is :",gcollection)
+ # Close Connection
+  curb.close()
+  return render_template('Girls.html', girlscol=gcollection)
   
 
 @application.route('/search', methods=['POST', 'GET'])
