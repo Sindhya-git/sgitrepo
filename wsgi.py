@@ -51,9 +51,12 @@ def home_page():
 def womens_page():
   print ("in womens page",)
   curw = mysql.connection.cursor()
-  curw.execute("""SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
-                 "FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
-                 "AND s.CATALOGUE_CATEGORY IN (53102901,53101603,53103201,53101904)""")
+  query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
+  query2 = "FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
+  query3 = "AND s.CATALOGUE_CATEGORY IN (53102901,53101603,53103201,53101904)"
+  curwquery = query1 + query2 + query3 
+  print("curwquery is:",curwquery)
+  curw.execute(curwquery) 
   wcollection = curw.fetchall()
  # Close Connection
   curw.close()
