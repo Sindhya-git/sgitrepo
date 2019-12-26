@@ -57,7 +57,7 @@ def womens_page():
     print("bmcollection is :",bwcollection)
  # Close Connection
     curbw.close()
-    return render_template('Bmens.html', bmomencol=bwcollection)
+    return render_template('Bwomens.html', bwomencol=bwcollection)
   else:
     curw = mysql.connection.cursor()
     query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
