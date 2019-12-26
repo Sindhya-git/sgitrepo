@@ -140,23 +140,29 @@ def search():
         # Create cursor
         cur3 = mysql.connection.cursor()
    # Get the row count in cur3.rowcount
-        query_string = "SELECT * FROM XXIBM_PRODUCT_CATALOGUE WHERE MATCH(COMMODITY_NAME) AGAINST(%s IN NATURAL LANGUAGE MODE)"
-        #query_string = "SELECT * FROM XXIBM_PRODUCT_CATALOGUE WHERE COMMODITY_NAME LIKE %s ORDER BY COMMODITY ASC"
-        cur3.execute(query_string, ('%' + q + '%',))
+        qs = q.split()
+        qr = q.replace(' ','%')
+        print("qs is:",qs)
+        print("type :",type(qs))
+        print("qr is:",qr)
+        commo_id = []
+        #for j in qs:
+        #  print ("j is :," j)
+        query_string = "SELECT * FROM XXIBM_PRODUCT_CATALOGUE WHERE COMMODITY_NAME LIKE %s ORDER BY COMMODITY ASC"
+        cur3.execute(query_string, ('%' + qr + '%',))
         commosrch1 = cur3.fetchall()
         print("cur3 is :",cur3.rowcount)
-        cur3.execute(query_string, ('%' + q + '%',))
+        cur3.execute(query_string, ('%' + qr + '%',))
         commosrch = cur3.fetchone()
           
    # Collect all the commodity in dict by looping thru the cursor    
-        commo_id = []
-        for i in range(0,cur3.rowcount):
-          print ("commo1 is:", commosrch['COMMODITY'])
-          commo_id.append(commosrch['COMMODITY'])          
-          commosrch = cur3.fetchone()
+          for i in range(0,cur3.rowcount):
+            print ("commo1 is:", commosrch['COMMODITY'])
+            commo_id.append(commosrch['COMMODITY'])          
+            commosrch = cur3.fetchone()
           
-        print("commo_id is :", str(commo_id))
-        cur3.close()
+          print("commo_id is :", str(commo_id))
+          cur3.close()
         
         if commo_id:
           cur4 = mysql.connection.cursor()
