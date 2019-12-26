@@ -89,7 +89,7 @@ def mensbrand_page():
     print("bmcollection is :",bmcollection)
  # Close Connection
     curbm.close()
-    return render_template('BMens.html', bmencol=bmcollection)
+    return render_template('Bmens.html', bmencol=bmcollection)
 
 
 
