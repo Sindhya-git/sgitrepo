@@ -41,17 +41,35 @@ def home_page():
 @application.route("/women")
 def womens_page():
   print ("in womens page",)
-  curw = mysql.connection.cursor()
-  query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
-  query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
-  query3 = " AND s.DESCRIPTION LIKE '%Women%'"
-  curwquery = query1 + query2 + query3 
-  print("curwquery is:",curwquery)
-  curw.execute(curwquery) 
-  wcollection = curw.fetchall()
+  if 'view' in request.args:
+    bname = request.args['view']
+    print ("brand name is :", bname)
+    if bname == 'Reflex':
+      bname = 'Reflex Women'
+    curbw = mysql.connection.cursor()
+    query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
+    query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
+    query3 = " AND s.DESCRIPTION LIKE %s"
+    curbwquery = query1 + query2 + query3 
+    print("curbwquery is:",curbwquery)
+    curbm.execute(curbwquery,('%' + bname + '%',)) 
+    bwcollection = curbm.fetchall()
+    print("bmcollection is :",bwcollection)
  # Close Connection
-  curw.close()
-  return render_template('Womens.html', womcol=wcollection)
+    curbw.close()
+    return render_template('Bmens.html', bmomencol=bwcollection)
+  else:
+    curw = mysql.connection.cursor()
+    query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
+    query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
+    query3 = " AND s.DESCRIPTION LIKE '%Women%'"
+    curwquery = query1 + query2 + query3 
+    print("curwquery is:",curwquery)
+    curw.execute(curwquery) 
+    wcollection = curw.fetchall()
+ # Close Connection
+    curw.close()
+    return render_template('Womens.html', womcol=wcollection)
                  
 @application.route("/men")
 def mens_page():
@@ -86,29 +104,6 @@ def mens_page():
  # Close Connection
     curm.close()
     return render_template('Mens.html', mencol=mcollection)
-
-@application.route("/bmen/")
-def mensbrand_page():
-  print ("in mensbrand page",)
-  if 'view' in request.args:
-    
-    bname = request.args['view']
-    print ("brand name is :", bname)
-    if bname == 'Reflex':
-      bname = 'Reflex Men'
-    curbm = mysql.connection.cursor()
-    query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
-    query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
-    query3 = " AND s.DESCRIPTION LIKE %s"
-    curbmquery = query1 + query2 + query3 
-    print("curbmquery is:",curbmquery)
-    curbm.execute(curbmquery,('%' + bname + '%',)) 
-    bmcollection = curbm.fetchall()
-    print("bmcollection is :",bmcollection)
- # Close Connection
-    curbm.close()
-    return render_template('Bmens.html', bmencol=bmcollection)
-
 
 
 @application.route("/boys")
