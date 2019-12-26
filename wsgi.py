@@ -76,7 +76,7 @@ def mensbrand_page():
     
     bname = request.args['view']
     print ("brand name is :", bname)
-    if bname == 'Reflex:
+    if bname == 'Reflex':
       bname = 'Reflex Men'
     curbm = mysql.connection.cursor()
     query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
