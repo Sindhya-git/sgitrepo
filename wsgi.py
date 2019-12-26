@@ -140,7 +140,8 @@ def search():
         # Create cursor
         cur3 = mysql.connection.cursor()
    # Get the row count in cur3.rowcount
-        query_string = "SELECT * FROM XXIBM_PRODUCT_CATALOGUE WHERE COMMODITY_NAME LIKE %s ORDER BY COMMODITY ASC"
+        query_string = "SELECT * FROM XXIBM_PRODUCT_CATALOGUE WHERE MATCH(COMMODITY_NAME) AGAINST(%s IN BOOLEAN MODE)"
+        #query_string = "SELECT * FROM XXIBM_PRODUCT_CATALOGUE WHERE COMMODITY_NAME LIKE %s ORDER BY COMMODITY ASC"
         cur3.execute(query_string, ('%' + q + '%',))
         commosrch1 = cur3.fetchall()
         print("cur3 is :",cur3.rowcount)
