@@ -156,13 +156,13 @@ def search():
         commosrch = cur3.fetchone()
           
    # Collect all the commodity in dict by looping thru the cursor    
-          for i in range(0,cur3.rowcount):
-            print ("commo1 is:", commosrch['COMMODITY'])
-            commo_id.append(commosrch['COMMODITY'])          
-            commosrch = cur3.fetchone()
+        for i in range(0,cur3.rowcount):
+          print ("commo1 is:", commosrch['COMMODITY'])
+          commo_id.append(commosrch['COMMODITY'])          
+          commosrch = cur3.fetchone()
           
-          print("commo_id is :", str(commo_id))
-          cur3.close()
+        print("commo_id is :", str(commo_id))
+        cur3.close()
         
         if commo_id:
           cur4 = mysql.connection.cursor()
