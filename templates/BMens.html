@@ -26,7 +26,7 @@
   width:200px;
   height:200px;
 }
-.flex-container > div >a >img {
+.flex-container > div > a >img {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
@@ -86,7 +86,6 @@
       {% for product in bmencol %}
                     <div class="card">
 			 <a href="/{{product.FAMILY_NAME}}?view={{product.ITEM_NUMBER}}">
-				 <h5>{{product.ITEM_NUMBER}}</h5>
 			 <img src='static/{{product.ITEM_NUMBER}}.jpg' width=150px>
                           <h5><a href="/">{{product.DESCRIPTION}}</a> </h5>
                           <h5>${{product.LIST_PRICE}}</h5>
