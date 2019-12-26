@@ -56,20 +56,38 @@ def womens_page():
 @application.route("/men")
 def mens_page():
   print ("in mens page",)
-  curm = mysql.connection.cursor()
-  query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
-  query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
-  query3 = " AND s.DESCRIPTION not LIKE '%Women%'"
-  curmquery = query1 + query2 + query3 
-  print("curmquery is:",curmquery)
-  curm.execute(curmquery) 
-  mcollection = curm.fetchall()
-  print("mcollection is :",mcollection)
+  if 'view' in request.args:
+    bname = request.args['view']
+    print ("brand name is :", bname)
+    if bname == 'Reflex':
+      bname = 'Reflex Men'
+    curbm = mysql.connection.cursor()
+    query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
+    query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
+    query3 = " AND s.DESCRIPTION LIKE %s"
+    curbmquery = query1 + query2 + query3 
+    print("curbmquery is:",curbmquery)
+    curbm.execute(curbmquery,('%' + bname + '%',)) 
+    bmcollection = curbm.fetchall()
+    print("bmcollection is :",bmcollection)
  # Close Connection
-  curm.close()
-  return render_template('Mens.html', mencol=mcollection)
+    curbm.close()
+    return render_template('Bmens.html', bmencol=bmcollection)
+  else:
+    curm = mysql.connection.cursor()
+    query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
+    query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
+    query3 = " AND s.DESCRIPTION not LIKE '%Women%'"
+    curmquery = query1 + query2 + query3 
+    print("curmquery is:",curmquery)
+    curm.execute(curmquery) 
+    mcollection = curm.fetchall()
+    print("mcollection is :",mcollection)
+ # Close Connection
+    curm.close()
+    return render_template('Mens.html', mencol=mcollection)
 
-@application.route("/men/")
+@application.route("/bmen/")
 def mensbrand_page():
   print ("in mensbrand page",)
   if 'view' in request.args:
