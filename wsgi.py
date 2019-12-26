@@ -177,7 +177,12 @@ def search():
         
           return render_template('search.html', product_srch=productsrch)
         else:
-          return render_template('search.html')  
+          query = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER and s.LONG_DESCRIPTION LIKE (%s)"
+          cur4.execute(query, ('%' + qr + '%',))
+          productsrch = cur4.fetchall()
+          print("productsrch is :",productsrch)
+          cur4.close()
+          return render_template('search.html', product_srch=productsrch)  
 
     
 if __name__ == "__main__":
