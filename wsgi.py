@@ -52,9 +52,9 @@ def womens_page():
     query3 = " AND s.DESCRIPTION LIKE %s"
     curbwquery = query1 + query2 + query3 
     print("curbwquery is:",curbwquery)
-    curbm.execute(curbwquery,('%' + bname + '%',)) 
-    bwcollection = curbm.fetchall()
-    print("bmcollection is :",bwcollection)
+    curbw.execute(curbwquery,('%' + bname + '%',)) 
+    bwcollection = curbw.fetchall()
+    print("bwcollection is :",bwcollection)
  # Close Connection
     curbw.close()
     return render_template('Bwomens.html', bwomencol=bwcollection)
