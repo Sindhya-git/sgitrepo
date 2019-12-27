@@ -177,9 +177,16 @@ def search():
           productsrch = cur4.fetchall()
           print("productsrch1 is :",productsrch)
           cur4.close()
+          cur5 = mysql.connection.cursor()
+          query = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER and CONCAT(s.DESCRIPTION,' ',s.LONG_DESCRIPTION,' ',s.SKU_ATTRIBUTE_VALUE1,' ',s.SKU_ATTRIBUTE_VALUE2) LIKE (%s)"
+          cur5.execute(query, ('%' + qr + '%',))
+          productsrch5 = cur5.fetchall()
+          productsrch = productsrch + productsrch5 
+          cur5.close()
           if cur4.rowcount == 0:
-            product_srch = ' '
-            return render_template('search.html', product_srch1=commosrch1)
+            if cur5.rowcount == 0:
+              product_srch = ' '
+              return render_template('search.html', product_srch1=commosrch1)
           else:
             return render_template('search.html', product_srch=productsrch)
         else:
@@ -194,6 +201,8 @@ def search():
           querysamp="SELECT s.ITEM_NUMBER, CONCAT(s.DESCRIPTION,' ',s.LONG_DESCRIPTION,' ',s.SKU_ATTRIBUTE_VALUE1,' ',s.SKU_ATTRIBUTE_VALUE2),p.LIST_PRICE FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER and CONCAT(s.DESCRIPTION,' ',s.LONG_DESCRIPTION,' ',s.SKU_ATTRIBUTE_VALUE1,' ',s.SKU_ATTRIBUTE_VALUE2) LIKE (%s)"
           curs.execute(query, ('%' + qr + '%',))
           print ("query samp :",querysamp)
+          productsrchs = curs.fetchall()
+          print("prdtsrchs :",productsrchs)
           curs.close()
           if cur4.rowcount == 0:
             productsrch = ' '
