@@ -38,6 +38,10 @@ def home_page():
     cur1.close()
     return render_template('home.html', shirts=shirts)
   
+@application.route("/home")
+def ghome_page():
+  return render_template('home.html')
+  
 @application.route("/women")
 def womens_page():
   print ("in womens page",)
