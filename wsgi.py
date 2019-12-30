@@ -182,7 +182,7 @@ def search():
           query2 = " OR CONCAT(s.DESCRIPTION,' ',s.LONG_DESCRIPTION,' ',s.SKU_ATTRIBUTE_VALUE2,' ',s.SKU_ATTRIBUTE_VALUE1) LIKE (%s) OR CONCAT(s.SKU_ATTRIBUTE_VALUE1,' ',s.SKU_ATTRIBUTE_VALUE2,' ',s.DESCRIPTION,' ',s.LONG_DESCRIPTION) LIKE (%s)"
           query3 = " OR CONCAT(s.SKU_ATTRIBUTE_VALUE2,' ',s.SKU_ATTRIBUTE_VALUE1,' ',s.DESCRIPTION,' ',s.LONG_DESCRIPTION) LIKE (%s)"
           query = query1 + query2 + query3
-          cur5.execute(query, ('%' + qr + '%',))
+          cur5.execute(query, ('%' + qr + '%','%' + qr + '%','%' + qr + '%',))
           productsrch5 = cur5.fetchall()
           print("prdtsrch5 :",productsrch5)
           productsrch = productsrch + productsrch5 
