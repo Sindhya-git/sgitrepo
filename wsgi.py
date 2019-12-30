@@ -185,12 +185,14 @@ def search():
           productsrch5 = cur5.fetchall()
           print("prdtsrch5 :",productsrch5)
           if productsrch5:
+            print("prod 51 has values",)
           else:
             productsrch5 = " "
             cur5.execute(query2,('%' + qr + '%',))
             productsrch5 = cur5.fetchall()
             print("prdtsrch52 :",productsrch5)
             if productsrch5:
+              print("prod 52 has values",)
             else:
               productsrch5 = " "
               cur5.execute(query3,('%' + qr + '%',))
