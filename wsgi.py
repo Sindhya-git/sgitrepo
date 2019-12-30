@@ -201,7 +201,7 @@ def search():
           query3 = " OR CONCAT(s.SKU_ATTRIBUTE_VALUE2,' ',s.SKU_ATTRIBUTE_VALUE1,' ',s.DESCRIPTION,' ',s.LONG_DESCRIPTION) LIKE (%s)"
           query = query1 + query2 + query3
           #query = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER and CONCAT(s.DESCRIPTION,' ',s.LONG_DESCRIPTION,' ',s.SKU_ATTRIBUTE_VALUE1,' ',s.SKU_ATTRIBUTE_VALUE2) LIKE (%s)"
-          cur4.execute(query, ('%' + qr + '%',),('%' + qr + '%',),('%' + qr + '%',))
+          cur4.execute(query, ('%' + qr + '%','%' + qr + '%','%' + qr + '%',))
           productsrch = cur4.fetchall()
           print("productsrch2 is :",productsrch)
           cur4.close()
