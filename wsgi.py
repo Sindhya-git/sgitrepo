@@ -182,28 +182,28 @@ def search():
           query2 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER AND CONCAT(s.DESCRIPTION,' ',s.LONG_DESCRIPTION,' ',s.SKU_ATTRIBUTE_VALUE2,' ',s.SKU_ATTRIBUTE_VALUE1) LIKE (%s) ESCAPE '''"
           query3 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER AND CONCAT(s.SKU_ATTRIBUTE_VALUE1,' ',s.SKU_ATTRIBUTE_VALUE2,' ',s.DESCRIPTION,' ',s.LONG_DESCRIPTION) LIKE (%s) ESCAPE '''"
           query4 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER AND CONCAT(s.SKU_ATTRIBUTE_VALUE2,' ',s.SKU_ATTRIBUTE_VALUE1,' ',s.DESCRIPTION,' ',s.LONG_DESCRIPTION) LIKE (%s) ESCAPE '''"
-          cur5.execute(query1,('%' + qr + ''%%',))
+          cur5.execute(query1,('%' + qr + '%',))
           productsrch5 = cur5.fetchall()
           print("prdtsrch5 :",productsrch5)
           if productsrch5:
             print("prod 51 has values",)
           else:
             productsrch5 = " "
-            cur5.execute(query2,('%' + qr + ''%%',))
+            cur5.execute(query2,('%' + qr + '%',))
             productsrch5 = cur5.fetchall()
             print("prdtsrch52 :",productsrch5)
             if productsrch5:
               print("prod 52 has values",)
             else:
               productsrch5 = " "
-              cur5.execute(query3,('%' + qr + ''%%',))
+              cur5.execute(query3,('%' + qr + '%',))
               productsrch5 = cur5.fetchall()
               print("prdtsrch53 :",productsrch5)
               if productsrch5:
                 print("prod 53 has values",)
               else:
                 productsrch5 = " "
-                cur5.execute(query4,('%' + qr + ''%%',))
+                cur5.execute(query4,('%' + qr + '%',))
                 productsrch5 = cur5.fetchall()
                 print("prdtsrch54 :",productsrch5)
           
@@ -240,21 +240,21 @@ def search():
             print("prod 1 has values",)
           else:
             productsrch = " "
-            cur4.execute(query2,('%' + qr + ''%%',))
+            cur4.execute(query2,('%' + qr + '%',))
             productsrch = cur4.fetchall()
             print("prdtsrch 2 :",productsrch)
             if productsrch:
               print("prod 2 has values",)
             else:
               productsrch = " "
-              cur4.execute(query3,('%' + qr + ''%%',))
+              cur4.execute(query3,('%' + qr + '%',))
               productsrch = cur4.fetchall()
               print("prdtsrch 3 :",productsrch)
               if productsrch:
                 print("prod 3 has values",)
               else:
                 productsrch = " "
-                cur4.execute(query4,('%' + qr + ''%%',))
+                cur4.execute(query4,('%' + qr + '%',))
                 productsrch = cur4.fetchall()
                 print("prdtsrch 4 :",productsrch)
           cur4.close()
