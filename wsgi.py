@@ -217,7 +217,7 @@ def search():
             if cur5.rowcount == 0:
               product_srch = ' '
               print("here 1",)
-              if commosrch1.rowcount == 0:
+              if cur3.rowcount == 0:
                 commosrch1 = " "
                 print("here 2",)
                 return render_template('search.html', product_srch1=commosrch1)
