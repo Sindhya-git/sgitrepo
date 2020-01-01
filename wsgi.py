@@ -213,6 +213,7 @@ def search():
           productsrch = productsrch + productsrch5 
           print("prod srh is ",productsrch) 
           cur5.close()
+          print("cur4 count :",cur4.rowcount + "cur5 count :",cur5.rowcount)
           if cur4.rowcount == 0:
             if cur5.rowcount == 0:
               product_srch = ' '
@@ -224,8 +225,11 @@ def search():
               else:
                 print("here 3",)
                 return render_template('search.html', product_srch1=commosrch1)
+            else:
+              print("here 4",)
+              return render_template('search.html', product_srch=productsrch)
           else:
-            print("here 4",)
+            print("here 5",)
             return render_template('search.html', product_srch=productsrch)
         else:
           cur4 = mysql.connection.cursor()
