@@ -213,7 +213,8 @@ def search():
           productsrch = productsrch + productsrch5 
           print("prod srh is ",productsrch) 
           cur5.close()
-          print("cur4 count :",cur4.rowcount + "cur5 count :",cur5.rowcount)
+          print("cur4 count :",cur4.rowcount )
+          print("cur5 count :",cur5.rowcount)
           if cur4.rowcount == 0:
             if cur5.rowcount == 0:
               product_srch = ' '
