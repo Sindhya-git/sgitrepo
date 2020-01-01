@@ -146,8 +146,9 @@ def search():
    # Get the row count in cur3.rowcount
         qs = q.split()
         qx = q.replace(' ','%')
-        qz = qx.replace("womens","women")
-        qr = qz.replace("mens","men")
+        qy = qx.replace("womens","women")
+        qz = qy.replace("mens"," men")
+        qr = qz.replace("men"," men")
         print("qs is:",qs)
         print("type :",type(qs))
         print("qr is:",qr)
