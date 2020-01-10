@@ -43,11 +43,9 @@
   		<a href="/girls">Girls</a>
   		<div class="search-container">
 			<form  action="/search" method="get" >
-   	       		<input type="text" class="searchTerm" name="q" placeholder="What will you shop for today?">
-				<form id="labnol" method="get" action="https://www.google.com/search">
-			<img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
-					</form
-      	       	<button type="submit"><i class="fa fa-search"></i></button>
+   	       			<input type="text" class="searchTerm" id="search-q" name="q" placeholder="product search (type or speak)">
+				<img onclick="startDictation()" id="mic" src="//i.imgur.com/cHidSVu.gif" />
+				<button type="submit"><i class="fa fa-search"></i></button>
    			</form>
    		</div>
     </div>
@@ -66,10 +64,10 @@
       recognition.start();
 
       recognition.onresult = function(e) {
-        document.getElementById('transcript').value
+        document.getElementById('search-q').value
                                  = e.results[0][0].transcript;
         recognition.stop();
-        document.getElementById('labnol').submit();
+        document.getElementById('mic').submit();
       };
 
       recognition.onerror = function(e) {
