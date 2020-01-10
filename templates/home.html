@@ -44,7 +44,8 @@
   		<div class="search-container">
 			<form  action="/search" method="get" >
    	       			<input type="text" class="searchTerm" id="search-q" name="q" placeholder="product search (type or speak)">
-				<img onclick="startDictation()" id="mic" src="//i.imgur.com/cHidSVu.gif" />
+				<!--img onclick="startDictation()" id="mic" src="//i.imgur.com/cHidSVu.gif" /--!>
+				<button id="mic" type="submit"><i class="fas fa-microphone"></i></button>
 				<button type="submit"><i class="fa fa-search"></i></button>
    			</form>
    		</div>
@@ -67,7 +68,7 @@
 	      console.log(e);
         document.getElementById('search-q').value
                                  = e.results[0][0].transcript;
-	      window.alert(e.results[0][0].transcript);
+	      
 	      
         recognition.stop();
         document.getElementById('mic').submit();
