@@ -64,8 +64,11 @@
       recognition.start();
 
       recognition.onresult = function(e) {
+	      console.log(e);
         document.getElementById('search-q').value
                                  = e.results[0][0].transcript;
+	      window.alert(e.results[0][0].transcript);
+	      
         recognition.stop();
         document.getElementById('mic').submit();
       };
