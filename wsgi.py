@@ -75,7 +75,7 @@ def womens_page():
     curw.close()
     return render_template('Womens.html', womcol=wcollection)
                  
-@application.route("/men", methods=['POST', 'GET']))
+@application.route("/men", methods=['POST', 'GET'])
 def mens_page():
   print ("in mens page",)
   if request.method == "POST":
