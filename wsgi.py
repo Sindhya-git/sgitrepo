@@ -75,10 +75,12 @@ def womens_page():
     curw.close()
     return render_template('Womens.html', womcol=wcollection)
                  
-@application.route("/men")
+@application.route("/men", methods=['POST', 'GET']))
 def mens_page():
   print ("in mens page",)
   if request.method == "POST":
+    print ("in post ",)
+    print ("request.POST.get('val1', 0)",request.POST.get('chkbox', 0))
     chkbox_val = request.form.get('chkbox')
     print ("chkbox_val is :", chkbox_val)
   if 'view' in request.args:
