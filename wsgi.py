@@ -78,6 +78,9 @@ def womens_page():
 @application.route("/men")
 def mens_page():
   print ("in mens page",)
+  if request.method == "POST":
+    chkbox_val = request.form.get('chkbox')
+    print ("chkbox_val is :", chkbox_val)
   if 'view' in request.args:
     bname = request.args['view']
     print ("brand name is :", bname)
