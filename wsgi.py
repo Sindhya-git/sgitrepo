@@ -78,6 +78,10 @@ def womens_page():
 @application.route("/men", methods=['POST', 'GET'])
 def mens_page():
   print ("in mens page",)
+  chkbox_val = request.form.getlist('chkbox')
+    print ("chkbox_val1 is :", chkbox_val)
+    chkbox_val = request.form.get('chkbox')
+    print ("chkbox_val2 is :", chkbox_val)
   if request.method == "POST":
     print ("in post ",)
     print ("request.POST.get('val1', 0)",request.POST.get('chkbox', 0))
