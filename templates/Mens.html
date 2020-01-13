@@ -97,20 +97,20 @@
   
   	<form id="form" action="/men" role="form" method="POST">
   		<div class="custom-control custom-checkbox mb-3">
-      			<a href="/men?cid="><input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="s38">
-				<label class="custom-control-label" for="customCheck">Size 38</label></div></a>
+      			<input type="checkbox" class="custom-control-input" onclick="formsub()" id="customCheck" name="chkbox" value="s38">
+				<label class="custom-control-label" for="customCheck">Size 38</label></div>
 			
     		<div class="custom-control custom-checkbox mb-3">
-      			<a href="/men?cid="><input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="s40">
-				<label class="custom-control-label" for="customCheck">Size 40</label></div></a>
+      			<input type="checkbox" class="custom-control-input" onclick="formsub()" id="customCheck" name="chkbox" value="s40">
+				<label class="custom-control-label" for="customCheck">Size 40</label></div>
 			
     		<div class="custom-control custom-checkbox mb-3">
-      			<a href="/men?cid="><input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="s50">
-				<label class="custom-control-label" for="customCheck">Size 50</label></div></a>
+      			<input type="checkbox" class="custom-control-input" onclick="formsub()" id="customCheck" name="chkbox" value="s50">
+				<label class="custom-control-label" for="customCheck">Size 50</label></div>
     
     		<div class="custom-control custom-checkbox mb-3">
-      			<a href="/men?cid="><input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="small">
-				<label class="custom-control-label" for="customCheck">Small</label></div></a>
+      			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="small">
+				<label class="custom-control-label" for="customCheck">Small</label></div>
          	<div class="custom-control custom-checkbox mb-3">
       			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="medium">
       			<label class="custom-control-label" for="customCheck">Medium</label></div>
@@ -128,6 +128,12 @@
     
  </div>
  
+	  
+	  <script>
+		  {
+			  document.getElementById("form").submit();
+		  }
+		  </script
  <div class="shirt-container">
     <div class="flex-container">
       {% for product in mencol %}
