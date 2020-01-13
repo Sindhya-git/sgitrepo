@@ -118,7 +118,19 @@ def mens_page():
     curm.close()
     return render_template('Mens.html', mencol=mcollection)
 
-
+@application.route("/men/", methods=['POST', 'GET'])
+def mens_page():
+  print ("in mens page",)
+  chkbox_val = request.form.getlist('chkbox')
+  print ("chkbox_val1 is :", chkbox_val)
+  chkbox_val = request.form.get('chkbox')
+  print ("chkbox_val2 is :", chkbox_val)
+  if request.method == "POST":
+    print ("in post ",)
+    chkbox_val = request.form.getlist('chkbox')
+    print ("chkbox_val is :", chkbox_val)
+    
+    
 @application.route("/boys")
 def boys_page():
   print ("in boys page",)
