@@ -84,14 +84,9 @@ def mens_page():
   print ("chkbox_val2 is :", chkbox_val)
   if request.method == "POST":
     print ("in post ",)
-    print ("request.POST.get('val1', 0)",request.POST.get('chkbox', 0))
-    chkbox_val = request.form.get('chkbox')
-    print ("chkbox_val is :", chkbox_val)
-  if 'cid' in request.args:
-    chkbox_val = request.args['cid']
-    print ("brand name is :", chkbox_val)
     chkbox_val = request.form.getlist('chkbox')
-    print ("chkbox_val1 is :", chkbox_val)
+    print ("chkbox_val is :", chkbox_val)
+  
   if 'view' in request.args:
     bname = request.args['view']
     print ("brand name is :", bname)
