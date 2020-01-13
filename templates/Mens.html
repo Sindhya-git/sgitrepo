@@ -95,18 +95,18 @@
 	  <br><br><br>
   <div class="check-container">
   
-  	<form id="chkform" action="/men" role="form" method="POST">
+  	<form id="chkform" action="/men/" role="form" method="POST">
   		<div class="custom-control custom-checkbox mb-3">
       			<input type="checkbox" class="custom-control-input"  id="customCheck" name="chkbox" value="s38">
-				<label class="custom-control-label" for="customCheck" onclick="formsub()">Size 38</label></div>
+				<label class="custom-control-label" for="customCheck" onclick="printChecked()">Size 38</label></div>
 			
     		<div class="custom-control custom-checkbox mb-3">
       			<input type="checkbox" class="custom-control-input"  id="customCheck" name="chkbox" value="s40">
-				<label class="custom-control-label" for="customCheck"  onclick="formsub()">Size 40</label></div>
+				<label class="custom-control-label" for="customCheck"  onclick="printChecked()">Size 40</label></div>
 			
     		<div class="custom-control custom-checkbox mb-3">
       			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="s50">
-				<label class="custom-control-label" for="customCheck"  onclick="formsub()">Size 50</label></div>
+				<label class="custom-control-label" for="customCheck"  onclick="printChecked()">Size 50</label></div>
     
     		<div class="custom-control custom-checkbox mb-3">
       			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="small">
@@ -129,11 +129,17 @@
  </div>
  
 	  
-	  <script>
-		  {
-			  document.getElementById("chkform").submit();
-		  }
-		  </script
+	  <script type="text/javascript">
+			function printChecked(){
+				var items=document.getElementsByName('chkbox');
+				var selectedItems="";
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox' && items[i].checked==true)
+						selectedItems+=items[i].value+"\n";
+				}
+				return (selectedItems);
+			}			
+		</script>
  <div class="shirt-container">
     <div class="flex-container">
       {% for product in mencol %}
