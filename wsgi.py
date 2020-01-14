@@ -119,7 +119,7 @@ def mens_page():
     return render_template('Mens.html', mencol=mcollection)
 
 @application.route("/men/", methods=['POST', 'GET'])
-def mens_page():
+def menchk_page():
   print ("in mens/ page",)
   chkbox_val = request.form.getlist('chkbox')
   print ("chkbox_val1 is :", chkbox_val)
