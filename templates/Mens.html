@@ -96,69 +96,33 @@
   <div class="check-container">
   
   	<form id="chkform" action="/men/" role="form" method="POST">
-		<div class="form-group">
-                                            <label>Checkboxes</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Checkbox 1
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Checkbox 2
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Checkbox 3
-                                                </label>
-                                            </div>
-                                        </div>
-  		<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input"  id="customCheck" name="chkbox" value="s38">
-				<label class="custom-control-label" for="customCheck" onclick="printChecked()">Size 38</label></div>
-			
-    		<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input"  id="customCheck" name="chkbox" value="s40">
-				<label class="custom-control-label" for="customCheck"  onclick="printChecked()">Size 40</label></div>
-			
-    		<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="s50">
-				<label class="custom-control-label" for="customCheck"  onclick="printChecked()">Size 50</label></div>
-    
-    		<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="small">
-				<label class="custom-control-label" for="customCheck">Small</label></div>
-         	<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="medium">
-      			<label class="custom-control-label" for="customCheck">Medium</label></div>
-      		<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="large">
-      			<label class="custom-control-label" for="customCheck">Large</label></div>
-      		<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="xl">
-      			<label class="custom-control-label" for="customCheck">XL</label></div>
-		<div class="custom-control custom-checkbox mb-3">
-      			<input type="checkbox" class="custom-control-input" id="customCheck" name="chkbox" value="xxl">
-      			<label class="custom-control-label" for="customCheck">XXL</label></div>
-      
-    </form>
+		
+	 	    <label>Size</label>
+             <div class="checkbox">
+              <label>   <input type="checkbox" value="s38" onclick="printChecked()">Size 38 </label>
+             </div>                                   
+                                            
+            <div class="checkbox">
+             <label>  <input type="checkbox" value="s38" onclick="printChecked()">Size 40</label>
+            </div>
+            
+            <div class="checkbox">
+              <label>  <input type="checkbox" value="s38" onclick="printChecked()">Size 50 </label>
+            </div>
+            <button class="button button1">submit</button>                            
+  					
+    		
+  </form>
+   
     
  </div>
- 
+ <script>
+function printChecked()() {
+  document.getElementById("chkform").submit();
+}
+</script>
 	  
-	  <script type="text/javascript">
-			function printChecked(){
-				var items=document.getElementsByName('chkbox');
-				for(var i=0; i<items.length; i++){
-					if(items[i].type=='checkbox' && items[i].checked==true)
-						window.alert(selectedItems)
-						selectedItems+=items[i].value+"\n";
-				}
-				
-				document.forms.getElementById("chkform").submit();
-			}			
-		</script>
+	  
  <div class="shirt-container">
     <div class="flex-container">
       {% for product in mencol %}
