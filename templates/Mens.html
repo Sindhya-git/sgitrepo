@@ -132,14 +132,13 @@
 	  <script type="text/javascript">
 			function printChecked(){
 				var items=document.getElementsByName('chkbox');
-				var selectedItems="";
 				for(var i=0; i<items.length; i++){
 					if(items[i].type=='checkbox' && items[i].checked==true)
 						window.alert(selectedItems)
 						selectedItems+=items[i].value+"\n";
 				}
 				return (selectedItems);
-				document.getElementById("chkform").submit();
+				document.forms.getElementById("chkform").submit();
 			}			
 		</script>
  <div class="shirt-container">
