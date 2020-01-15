@@ -78,13 +78,13 @@ def womens_page():
 @application.route("/men", methods=['POST', 'GET'])
 def mens_page():
   print ("in mens page",)
-  chkbox_val = request.form.getlist('chkbox')
+  chkbox_val = request.form.getlist('check')
   print ("chkbox_val1 is :", chkbox_val)
-  chkbox_val = request.form.get('chkbox')
+  chkbox_val = request.form.get('check')
   print ("chkbox_val2 is :", chkbox_val)
   if request.method == "POST":
     print ("in post ",)
-    chkbox_val = request.form.getlist('chkbox')
+    chkbox_val = request.form.getlist('check')
     print ("chkbox_val is :", chkbox_val)
   
   if 'view' in request.args:
