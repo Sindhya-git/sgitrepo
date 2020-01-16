@@ -90,8 +90,8 @@ def mens_page():
     query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
     query3 = " AND s.DESCRIPTION not LIKE '%Women%' AND s.SKU_ATTRIBUTE_VALUE1 IN %s"
     curcquery = query1 + query2 + query3 
-    print("curmquery is:",curcquery,('%' + chkbox_val + '%',)) 
-    curc.execute(curcquery) 
+    print("curcquery is:",curcquery) 
+    curc.execute(curcquery,('%' + chkbox_val + '%',)) ) 
     mcolsize = curc.fetchall()
     print("mcollection is :",mcolsize)
  # Close Connection
