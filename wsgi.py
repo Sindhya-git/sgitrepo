@@ -91,7 +91,7 @@ def mens_page():
     query3 = " AND s.DESCRIPTION not LIKE '%Women%' AND s.SKU_ATTRIBUTE_VALUE1 IN %s"
     curcquery = query1 + query2 + query3 
     print("curcquery is:",curcquery) 
-    curc.execute(curcquery,('%' + chkbox_val + '%',)) ) 
+    curc.execute(curcquery,('%' + chkbox_val + '%',))
     mcolsize = curc.fetchall()
     print("mcollection is :",mcolsize)
  # Close Connection
