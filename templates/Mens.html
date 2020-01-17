@@ -12,6 +12,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+function check()
+{ 
+	document.getElementById("s38").innerHTML = document.getElementById("s38").value; 
+	document.getElementById('chkform').submit();
+}
+  
+  	//const myform = document.getElementById("chkform");
+	//myform.addEventListener("submit",(e) { e.preventDefault();});
+	// document.getElementByName("check").innerHTML = document.chkform.check.value;
+	// document.getElementById("chkform").submit();
+
+</script> 
 
 <style>
 
@@ -96,11 +109,11 @@
 	  
   <div class="check-container">
   
-  	<form id="chkform" action="/men" role="form" method="POST" onsubmit="return (check())">
+  	<form id="chkform" action="/men" role="form" method="POST" onsubmit="return false">
 		
 	 <label>SIZE</label>
              <div class="checkbox">
-              <label>   <input type="checkbox" name="check" value="38 " onclick="document.getElementById('chkform').submit();">Size 38 </label>
+              <label>   <input type="checkbox" name="check" value="38 " onclick="check()">Size 38 </label>
              </div>                                   
                                             
             <div class="checkbox">
@@ -111,10 +124,10 @@
               <label>  <input type="checkbox" name="check" value="50 " onclick="document.getElementById('chkform').submit();">Size 50 </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="small" onclick="document.getElementById('chkform').submit();">Small </label>
+              <label>  <input type="checkbox" name="check" value="small" onclick="onclick="check()">Small </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="medium" onclick="document.getElementById('chkform').submit();">Medium</label>
+              <label>  <input type="checkbox" name="check" value="medium" onclick="onclick="check()">Medium</label>
             </div>
 	    <div class="checkbox">
               <label>  <input type="checkbox" name="check" value="large" onclick="document.getElementById('chkform').submit();">Large </label>
