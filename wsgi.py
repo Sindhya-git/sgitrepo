@@ -88,7 +88,7 @@ def mens_page():
     curc = mysql.connection.cursor()
     query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
     query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
-    query3 = " AND s.DESCRIPTION not LIKE '%Women%' AND s.SKU_ATTRIBUTE_VALUE1 IN %s"
+    query3 = " AND s.SKU_ATTRIBUTE_VALUE1 IN %s"
     curcquery = query1 + query2 + query3 
     print("curcquery is:",curcquery) 
     curc.execute(curcquery, (chkbox_val,))
