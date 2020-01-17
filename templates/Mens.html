@@ -93,36 +93,42 @@
   </div>
 
 	  <br><br><br>
+	  <script>
+function printChecked() {
+  document.getElementById("chkform").submit();
+  document.getElementByName("check").innerHTML = document.chkform.check.value;
+}
+</script>
   <div class="check-container">
   
   	<form id="chkform" action="/men" role="form" method="POST" onsubmit="return false">
 		
 	 <label>SIZE</label>
              <div class="checkbox">
-              <label>   <input type="checkbox" name="check" value="38 " onclick="document.getElementById('chkform').submit();">Size 38 </label>
+              <label>   <input type="checkbox" name="check" value="38 " onclick="printChecked()">Size 38 </label>
              </div>                                   
                                             
             <div class="checkbox">
-             <label>  <input type="checkbox" name="check" value="40 " onclick="document.getElementById('chkform').submit();">Size 40</label>
+             <label>  <input type="checkbox" name="check" value="40 " onclick="printChecked()">Size 40</label>
             </div>
             
             <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="50 " onclick="document.getElementById('chkform').submit();">Size 50 </label>
+              <label>  <input type="checkbox" name="check" value="50 " onclick="printChecked()">Size 50 </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="small">Small </label>
+              <label>  <input type="checkbox" name="check" value="small" onclick="printChecked()">Small </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="medium" onclick="document.getElementById('chkform').submit();">Medium</label>
+              <label>  <input type="checkbox" name="check" value="medium" onclick="printChecked()">Medium</label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="large" onclick="document.getElementById('chkform').submit();">Large </label>
+              <label>  <input type="checkbox" name="check" value="large" onclick="printChecked()">Large </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="XL" onclick="document.getElementById('chkform').submit();">XL </label>
+              <label>  <input type="checkbox" name="check" value="XL" onclick="printChecked()">XL </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="XXLarge" onclick="document.getElementById('chkform').submit();">XXL </label>
+              <label>  <input type="checkbox" name="check" value="XXLarge" onclick="printChecked()">XXL </label>
             </div>
                                       
   					
@@ -131,11 +137,7 @@
    
     
  </div>
- <script>
-function printChecked()() {
-  document.getElementById("chkform").submit();
-}
-</script>
+ 
 	  
 	  
  <div class="shirt-container">
