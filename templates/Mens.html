@@ -95,8 +95,9 @@
 	  <br><br><br>
 	  <script>
 function printChecked() {
-  document.getElementById("chkform").submit();
+  
   document.getElementByName("check").innerHTML = document.chkform.check.value;
+	document.getElementById("chkform").submit();
 }
 </script>
   <div class="check-container">
@@ -105,7 +106,7 @@ function printChecked() {
 		
 	 <label>SIZE</label>
              <div class="checkbox">
-              <label>   <input type="checkbox" name="check" value="38 " onclick="printChecked()">Size 38 </label>
+              <label>   <input type="checkbox" name="check" value="38 " onclick="printChecked(); return false">Size 38 </label>
              </div>                                   
                                             
             <div class="checkbox">
@@ -116,7 +117,7 @@ function printChecked() {
               <label>  <input type="checkbox" name="check" value="50 " onclick="printChecked()">Size 50 </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="small" onclick="printChecked()">Small </label>
+              <label>  <input type="checkbox" name="check" value="small" onclick="printChecked(); return false">Small </label>
             </div>
 	    <div class="checkbox">
               <label>  <input type="checkbox" name="check" value="medium" onclick="printChecked()">Medium</label>
