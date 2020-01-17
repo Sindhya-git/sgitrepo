@@ -96,7 +96,7 @@
 	  
   <div class="check-container">
   
-  	<form id="chkform" action="/men" role="form" method="POST">
+  	<form id="chkform" action="/men" role="form" method="POST" onsubmit="return false">
 		
 	 <label>SIZE</label>
              <div class="checkbox">
@@ -129,16 +129,7 @@
   					
     		
   </form>
-  <script>
-
-  
-  	const myform = document.getElementById("chkform");
-	myform.addEventListener("submit",(e) => { e.preventDefault();})
-	// document.getElementByName("check").innerHTML = document.chkform.check.value;
-	// document.getElementById("chkform").submit();
-
-</script> 
-    
+      
  </div>
  
 	  
