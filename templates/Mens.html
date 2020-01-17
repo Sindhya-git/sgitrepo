@@ -12,19 +12,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script>
-function check()
-{ 
-	document.getElementById("s38").innerHTML = document.getElementById("s38").value; 
-	document.getElementById('chkform').submit();
-}
-  
-  	//const myform = document.getElementById("chkform");
-	//myform.addEventListener("submit",(e) { e.preventDefault();});
-	// document.getElementByName("check").innerHTML = document.chkform.check.value;
-	// document.getElementById("chkform").submit();
-
-</script> 
+  $(document).ready(function(){
+    $('.category').on('change', function(){
+      var category_list = [];
+      $('#filters :input:checked').each(function(){
+        var category = $(this).val();
+        category_list.push(category);
+      });
+ 
+      
+    });
+  }); 
+  </script>
 
 <style>
 
@@ -108,52 +109,44 @@ function check()
 	  <br><br><br>
 	  
   <div class="check-container">
-  
-  	<form id="chkform" action="/men" role="form" method="POST" onsubmit="return false">
+  <form id="chkform" action="" role="form" method="post" onsubmit="return false">
+  	<div id="filters">
 		
 	 <label>SIZE</label>
              <div class="checkbox">
-              <label>   <input type="checkbox" name="check" value="38 " onclick="check()">Size 38 </label>
+              <label>   <input type="checkbox" name="check" class="category">Size 38 </label>
              </div>                                   
                                             
             <div class="checkbox">
-             <label>  <input type="checkbox" name="check" value="40 " onclick="document.getElementById('chkform').submit();">Size 40</label>
+             <label>  <input type="checkbox" name="check" value="40 " class="category">Size 40</label>
             </div>
             
             <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="50 " onclick="document.getElementById('chkform').submit();">Size 50 </label>
+              <label>  <input type="checkbox" name="check" value="50 " class="category">Size 50 </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="small" onclick="onclick="check()">Small </label>
+              <label>  <input type="checkbox" name="check" value="small" class="category">Small </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="medium" onclick="onclick="check()">Medium</label>
+              <label>  <input type="checkbox" name="check" value="medium" class="category">Medium</label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="large" onclick="document.getElementById('chkform').submit();">Large </label>
+              <label>  <input type="checkbox" name="check" value="large" class="category">Large </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="XL" onclick="document.getElementById('chkform').submit();">XL </label>
+		    <label>  <input type="checkbox" name="check" value="XL" class="category">XL </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="XXLarge" onclick="document.getElementById('chkform').submit();">XXL </label>
+              <label>  <input type="checkbox" name="check" value="XXLarge" class="category">XXL </label>
             </div>
+            
                                       
-  					
+  	</div>				
     		
   </form>
-      
+  	
  </div>
- <script>
-function check(){ document.getElementByName("check").innerHTML = document.chkform.check.value;}
-  
-  	//const myform = document.getElementById("chkform");
-	//myform.addEventListener("submit",(e) { e.preventDefault();});
-	// document.getElementByName("check").innerHTML = document.chkform.check.value;
-	// document.getElementById("chkform").submit();
-
-</script> 
-	  
+ 
 	  
  <div class="shirt-container">
     <div class="flex-container">
