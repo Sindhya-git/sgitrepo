@@ -8,3 +8,5 @@ Jinja2==2.10.1
 MarkupSafe==1.1.1
 mysqlclient==1.4.2.post1
 WTForms==2.2.1
+websocket-client==0.48.0
+ibm_cloud_sdk_core==1.5.1
