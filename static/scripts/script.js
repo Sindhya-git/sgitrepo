@@ -2,8 +2,9 @@
 let recorder;
 
 
-const recordMic = document.getElementById('mic');
-recordMic.onclick = function() {
+
+function stt() {
+  const recordMic = document.getElementById('mic');
   const fullPath = recordMic.src;
   const filename = fullPath.replace(/^.*[\\/]/, '');
   if (filename == 'microphone.jpg') {
