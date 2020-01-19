@@ -2,10 +2,18 @@ from flask import Flask, render_template, json, request, session, redirect
 from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators, SelectField
 from functools import wraps
+from flask import jsonify
+from flask_socketio import SocketIO
+from flask_cors import CORS
+from ibm_watson import SpeechToTextV1
+from ibm_cloud_sdk_core import get_authenticator_from_environment
 import os
 
 #Initialize flask
 application = Flask(__name__)
+# 
+socketio = SocketIO(application)
+CORS(application)
 # Config MySQL
 mysql = MySQL()
 application.config['MYSQL_HOST']  = "custom-mysql.gamification.svc.cluster.local"
@@ -41,6 +49,27 @@ def home_page():
 @application.route("/home")
 def ghome_page():
   return render_template('home.html')
+
+@app.route('/api/speech-to-text', methods=['POST'])
+def getTextFromSpeech():
+
+    sttService = SpeechToTextV1()
+
+    response = sttService.recognize(
+            audio=request.get_data(cache=False),
+            content_type='audio/wav',
+            timestamps=True,
+            word_confidence=True,
+            smart_formatting=True).get_result()
+
+    # Ask user to repeat if STT can't transcribe the speech
+    if len(response['results']) < 1:
+        return Response(mimetype='plain/text',
+                        response="Sorry, didn't get that. please try again!")
+
+    text_output = response['results'][0]['alternatives'][0]['transcript']
+    text_output = text_output.strip()
+    return Response(response=text_output, mimetype='plain/text')
   
 @application.route("/women")
 def womens_page():
@@ -327,6 +356,6 @@ def search():
           else:
             return render_template('search.html', product_srch=productsrch)  
 
-    
+port = os.environ.get("PORT") or os.environ.get("VCAP_APP_PORT") or 5000    
 if __name__ == "__main__":
-    application.run()
+    socketio.run(application)
