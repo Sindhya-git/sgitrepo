@@ -52,26 +52,27 @@ def ghome_page():
 
 @application.route('/api/speech-to-text', methods=['POST'])
 def getTextFromSpeech():
+  print ("in speech to text",)
 
     # initialize speech to text service
-authenticator = IAMAuthenticator('N0-hVj524g0o23sRDYesTJN4DPbZyBffx5ziKMOpOecL')
-speech_to_text = SpeechToTextV1(authenticator=authenticator)
+  authenticator = IAMAuthenticator('N0-hVj524g0o23sRDYesTJN4DPbZyBffx5ziKMOpOecL')
+  speech_to_text = SpeechToTextV1(authenticator=authenticator)
 
 
-    response = sttService.recognize(
+  response = sttService.recognize(
             audio=request.get_data(cache=False),
             content_type='audio/wav',
             timestamps=True,
             word_confidence=True,
             smart_formatting=True).get_result()
-
-    # Ask user to repeat if STT can't transcribe the speech
-    if len(response['results']) < 1:
-        return Response(mimetype='plain/text',
-                        response="Sorry, didn't get that. please try again!")
+  print ("response of speech is :," response['results'])
+  # Ask user to repeat if STT can't transcribe the speech
+  if len(response['results']) < 1:
+    return Response(mimetype='plain/text',response="Sorry, didn't get that. please try again!")
 
     text_output = response['results'][0]['alternatives'][0]['transcript']
     text_output = text_output.strip()
+    print ("response of speech is :," text_output)
     return Response(response=text_output, mimetype='plain/text')
   
 @application.route("/women")
