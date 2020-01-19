@@ -6,7 +6,7 @@ const recordMic = document.getElementById('mic');
 recordMic.onclick = function() {
   const fullPath = recordMic.src;
   const filename = fullPath.replace(/^.*[\\/]/, '');
-  if (filename == 'mic.gif') {
+  if (filename == 'microphone.jpg') {
     try {
       
       startRecording();
