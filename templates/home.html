@@ -44,7 +44,7 @@
   		<div class="search-container">
 			<form  action="/search" method="get" >
    	       			<input type="text" class="searchTerm" id="search-q" name="q" placeholder="product search (type or speak)">
-				<img id="mic" src="static/microphone.jpg"></input>
+				<img id="mic" src="static/microphone.jpg">
 				<button id="searchsub" type="submit"><i class="fa fa-search"></i></button>
    			</form>
    		</div>
@@ -186,7 +186,12 @@
    </div>
  </div>
  </div>
- 
+ <p><audio id="audio" controls></audio></p>
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+	<script type="text/javascript" src="./static/scripts/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="./static/scripts/script.js"></script>
+	<script type="text/javascript" src="./static/scripts/recorder.js"></script>
+	<script type="text/javascript" src="./static/scripts/recordWorker.js"></script>
  <br><br><br><br>
 <!-- Footer -->
 <footer class="page-footer unique-color-dark">
@@ -226,12 +231,7 @@
     </div>
     
   </div>
- 	<p><audio id="audio" controls></audio></p>
-	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-	<script type="text/javascript" src="./static/scripts/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="./static/scripts/script.js"></script>
-	<script type="text/javascript" src="./static/scripts/recorder.js"></script>
-	<script type="text/javascript" src="./static/scripts/recordWorker.js"></script>
+ 	
   <!-- Footer Links -->
   <div style="background-color: #000;">
   <div class="container text-center text-white text-md-left">
