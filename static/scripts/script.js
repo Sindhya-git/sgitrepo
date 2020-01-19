@@ -164,28 +164,3 @@ function stopRecording(button) {
   recorder.clear();
 }
 
-window.onload = function init() {
-  try {
-    // webkit shim
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-    // eslint-disable-next-line
-    window.URL = window.URL || window.webkitURL;
-
-    context = new AudioContext();
-    console.log('Audio context set up.');
-    console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-  } catch (e) {
-    alert('No web audio support in this browser!');
-  }
-
-  navigator.getUserMedia(
-    {
-      audio: true
-    },
-    startUserMedia,
-    function(e) {
-      console.log('No live audio input: ' + e);
-    }
-  );
-};
