@@ -50,7 +50,7 @@ def home_page():
 def ghome_page():
   return render_template('home.html')
 
-@app.route('/api/speech-to-text', methods=['POST'])
+@application.route('/api/speech-to-text', methods=['POST'])
 def getTextFromSpeech():
 
     # initialize speech to text service
