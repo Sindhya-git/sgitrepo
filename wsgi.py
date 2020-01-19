@@ -72,7 +72,7 @@ def getTextFromSpeech():
 
     text_output = response['results'][0]['alternatives'][0]['transcript']
     text_output = text_output.strip()
-    print ("response of speech is :," text_output)
+    print ("response of speech is :",text_output)
     return Response(response=text_output, mimetype='plain/text')
   
 @application.route("/women")
