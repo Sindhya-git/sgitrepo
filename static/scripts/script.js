@@ -106,13 +106,12 @@ function play(inputText) {
   }
 }
 
-const recordMic = document.getElementById('stt2');
+const recordMic = document.getElementById('mic');
 recordMic.onclick = function() {
   const fullPath = recordMic.src;
   const filename = fullPath.replace(/^.*[\\/]/, '');
-  if (filename == 'mic.gif') {
+  if (filename == 'microphone.jpg') {
     try {
-      recordMic.src = './static/img/mic_active.png';
       startRecording();
       console.log('recorder started');
       $('#q').val('I am listening ...');
@@ -122,7 +121,6 @@ recordMic.onclick = function() {
   } else {
     stopRecording();
     $('#q').val('');
-    recordMic.src = './static/img/mic.gif';
   }
 };
 
