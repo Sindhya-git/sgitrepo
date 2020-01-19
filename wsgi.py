@@ -53,7 +53,10 @@ def ghome_page():
 @app.route('/api/speech-to-text', methods=['POST'])
 def getTextFromSpeech():
 
-    sttService = SpeechToTextV1()
+    # initialize speech to text service
+authenticator = IAMAuthenticator('N0-hVj524g0o23sRDYesTJN4DPbZyBffx5ziKMOpOecL')
+speech_to_text = SpeechToTextV1(authenticator=authenticator)
+
 
     response = sttService.recognize(
             audio=request.get_data(cache=False),
