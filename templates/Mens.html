@@ -14,6 +14,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
 <style>
+	
+.vl {
+  border-left: 1px solid grey;
+  height: 500px;
+  position: absolute;
+  left: 17%;
+  margin-left: -3px;
+  top: 35%;
+}
 
 .shirt-container{
   position: absolute;
@@ -76,6 +85,8 @@
    			</form>
   		</div>
     </div>
+	  
+    <div class="vl"></div>
  
    <div class="container">
    	<div class="row">
@@ -96,16 +107,15 @@
 	  
   <div class="check-container">
   <form id="chkform" action="/men" role="form" method="post" onsubmit="return false">
-  	<fieldset disabled>
-		
-	 <legend>SIZE</legend>
+  	<legend>SIZE</legend>
 		
             <select name="sizelist" onchange="document.getElementById("chkform").submit();">
-  		<option value="'38 Long','38 Short'">Size 38</option>
-  		<option value="'40 Long','40 Regular'">Size 40</option>
-  		<option value="'50 Long'">Size 50</option>
-  		<option value="'small','Small-Black','Small-Dark Green'">Small </option>
-	   </select>                          	
+            	<option value="'38 Long','38 Short'"> --------Select------------- </option>
+  				<option value="'38 Long','38 Short'">Size 38</option>
+  				<option value="'40 Long','40 Regular'">Size 40</option>
+  				<option value="'50 Long'">Size 50</option>
+  				<option value="'small','Small-Black','Small-Dark Green'">Small </option>
+	   		</select>                           	
   </form>
   	
  </div>
