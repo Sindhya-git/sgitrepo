@@ -109,7 +109,7 @@
   <form id="chkform" action="/men" role="form" method="post" onsubmit="return false">
   	<legend>SIZE</legend>
 		
-            <select name="sizelist" onchange="document.getElementById("chkform").submit();">
+            <select name="sizelist" onchange="this.form.submit()">
             	<option value="'38 Long','38 Short'"> --------Select------------- </option>
   				<option value="'38 Long','38 Short'">Size 38</option>
   				<option value="'40 Long','40 Regular'">Size 40</option>
