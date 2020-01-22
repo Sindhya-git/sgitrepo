@@ -111,26 +111,25 @@ def womens_page():
 @application.route("/men", methods=['POST', 'GET'])
 def mens_page():
   print ("in mens page",)
-  szlist_val = request.form.getlist('sizelist')
-  print ("chkbox_val1 is :", szlist_val)
+  chkbox_val = request.form.getlist('check')
+  print ("chkbox_val1 is :", chkbox_val)
   
   if request.method == "POST":
     print ("in post ",)
-    szlist_val = request.form.getlist('sizelist')
-    print ("chkbox_val is :", szlist_val)
-    szlist_val.replace('|', ',')
+    chkbox_val = request.form.getlist('check')
+    print ("chkbox_val is :", chkbox_val)
     curc = mysql.connection.cursor()
     query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
     query2 = " FROM XXIBM_PRODUCT_SKU s INNER JOIN XXIBM_PRODUCT_PRICING p WHERE s.ITEM_NUMBER=p.ITEM_NUMBER"
     query3 = " AND s.SKU_ATTRIBUTE_VALUE1 IN %s"
     curcquery = query1 + query2 + query3 
     print("curcquery is:",curcquery) 
-    curc.execute(curcquery, (szlist_val,))
+    curc.execute(curcquery, (chkbox_val,))
     mcolsize = curc.fetchall()
     print("mcollection is :",mcolsize)
  # Close Connection
     curc.close()
-    return render_template('Mens.html', mencol=mcolsize)
+    return render_template('Mens.html', mencol=mcolsize,chkbox_val1=chkbox_val)
     
   
   if 'view' in request.args:
