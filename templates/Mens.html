@@ -111,18 +111,18 @@
 	   
 	   {% if chkbox_val1 == null or chkbox_val1 == "" %}	
             <div class="checkbox">
-              <label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category" onclick="this.form.submit()">Size 38 </label>
+              <label>   <input type="checkbox" name="check" value='38' class="category" onclick="this.form.submit()">Size 38 </label>
              </div>                                   
                                             
             <div class="checkbox">
-             <label>  <input type="checkbox" name="check" value="'40 Long','40 Regular'" class="category" onclick="this.form.submit()">Size 40</label>
+             <label>  <input type="checkbox" name="check" value='40' class="category" onclick="this.form.submit()">Size 40</label>
             </div>
             
             <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="'50 Long'" class="category" onclick="this.form.submit()">Size 50 </label>
+              <label>  <input type="checkbox" name="check" value='50' class="category" onclick="this.form.submit()">Size 50 </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="'small','Small-Black','Small-Dark Green'" class="category" onclick="this.form.submit()">Small </label>
+              <label>  <input type="checkbox" name="check" value='small' class="category" onclick="this.form.submit()">Small </label>
             </div>
 	    <div class="checkbox">
               <label>  <input type="checkbox" name="check" value="medium" class="category" onclick="this.form.submit()">Medium</label>
@@ -137,17 +137,18 @@
               <label>  <input type="checkbox" name="check" value="XXLarge" class="category" onclick="this.form.submit()">XXL </label>
             </div>
 	  {% else %}
+	  <p>{{chkbox_val1, chkbox_val1[0]}}</p>
 	  	{% for chkbox in chkbox_val1 %}
-	  	<p>{{chkbox_val1}}</p>
+	  		{% if chkbox == '38' %}
 	  		<div class="checkbox">
-              		<label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category" onclick="this.form.submit()">Size 38 </label>
+              		<label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category" onclick="this.form.submit()" checked>Size 38 </label>
              		</div>  
-	  		
-                                            
+	  		{% endif %}
+                        {% if chkbox == '40' %}                    
             		<div class="checkbox">
              		<label>  <input type="checkbox" name="check" value="'40 Long','40 Regular'" class="category" onclick="this.form.submit()">Size 40</label>
             		</div>
-	  	{% endfor %}
+	  		{% endif %}
 	  {% endif %}
                        	
   </form>
