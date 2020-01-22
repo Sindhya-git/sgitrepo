@@ -170,7 +170,7 @@ def mens_page():
     print("mcollection is :",mcolsize)
  # Close Connection
     curc.close()
-    return render_template('Mens.html', mencol=mcolsize,chkbox_val1=chkbox_val)
+    return render_template('Mens.html', mencol=mcolsize,cbox=chkbox_val)
     
   
   if 'view' in request.args:
