@@ -109,13 +109,33 @@
   <form id="chkform" action="/men" role="form" method="post" onsubmit="return false">
   	<legend>SIZE</legend>
 		
-            <select name="sizelist" onchange="this.form.submit()">
-            	<option value=" "> --------Select------------- </option>
-  				<option value="'38 Long'|'38 Short'">Size 38 </option>
-  				<option value="'40 Long'|'40 Regular'">Size 40 </option>
-  				<option value="50 Long">Size 50 </option>
-  				<option value="'small'|'Small-Black'|'Small-Dark Green'">Small </option>
-	   		</select>                           	
+            <div class="checkbox">
+              <label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category">Size 38 </label>
+             </div>                                   
+                                            
+            <div class="checkbox">
+             <label>  <input type="checkbox" name="check" value="'40 Long','40 Regular'" class="category">Size 40</label>
+            </div>
+            
+            <div class="checkbox">
+              <label>  <input type="checkbox" name="check" value="'50 Long'" class="category">Size 50 </label>
+            </div>
+	    <div class="checkbox">
+              <label>  <input type="checkbox" name="check" value="'small','Small-Black','Small-Dark Green'" class="category" >Small </label>
+            </div>
+	    <div class="checkbox">
+              <label>  <input type="checkbox" name="check" value="medium" class="category">Medium</label>
+            </div>
+	    <div class="checkbox">
+              <label>  <input type="checkbox" name="check" value="large" class="category">Large </label>
+            </div>
+	    <div class="checkbox">
+		    <label>  <input type="checkbox" name="check" value="XL" class="category">XL </label>
+            </div>
+	    <div class="checkbox">
+              <label>  <input type="checkbox" name="check" value="XXLarge" class="category">XXL </label>
+            </div>
+                       	
   </form>
   	
  </div>
