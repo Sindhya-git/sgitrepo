@@ -117,7 +117,7 @@ def mens_page():
   if request.method == "POST":
     print ("in post ",)
     chkbox_val = request.form.getlist('check')
-    print ("chkbox_val is :", chkbox_val)
+    print ("chkbox_val is :", chkbox_val[0],chkbox_val[1])
     chkbox_val = chkbox_val[1:-1]
     print ("chkbox_val is :", chkbox_val)
     curc = mysql.connection.cursor()
