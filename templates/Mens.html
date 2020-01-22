@@ -108,33 +108,47 @@
   <div class="check-container">
   <form id="chkform" action="/men" role="form" method="post" onsubmit="return false">
   	<legend>SIZE</legend>
-		
+	   
+	   {% if chkbox_val1 == null or chkbox_val1 == "" %}	
             <div class="checkbox">
-              <label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category">Size 38 </label>
+              <label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category" onclick="this.form.submit()">Size 38 </label>
              </div>                                   
                                             
             <div class="checkbox">
-             <label>  <input type="checkbox" name="check" value="'40 Long','40 Regular'" class="category">Size 40</label>
+             <label>  <input type="checkbox" name="check" value="'40 Long','40 Regular'" class="category" onclick="this.form.submit()">Size 40</label>
             </div>
             
             <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="'50 Long'" class="category">Size 50 </label>
+              <label>  <input type="checkbox" name="check" value="'50 Long'" class="category" onclick="this.form.submit()">Size 50 </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="'small','Small-Black','Small-Dark Green'" class="category" >Small </label>
+              <label>  <input type="checkbox" name="check" value="'small','Small-Black','Small-Dark Green'" class="category" onclick="this.form.submit()">Small </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="medium" class="category">Medium</label>
+              <label>  <input type="checkbox" name="check" value="medium" class="category" onclick="this.form.submit()">Medium</label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="large" class="category">Large </label>
+              <label>  <input type="checkbox" name="check" value="large" class="category" onclick="this.form.submit()">Large </label>
             </div>
 	    <div class="checkbox">
-		    <label>  <input type="checkbox" name="check" value="XL" class="category">XL </label>
+		    <label>  <input type="checkbox" name="check" value="XL" class="category" onclick="this.form.submit()">XL </label>
             </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="XXLarge" class="category">XXL </label>
+              <label>  <input type="checkbox" name="check" value="XXLarge" class="category" onclick="this.form.submit()">XXL </label>
             </div>
+	  {% else %}
+	  	{% for chkbox in chkbox_val1 %}
+	  	<p>chkbox</p>
+	  		<div class="checkbox">
+              		<label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category" onclick="this.form.submit()">Size 38 </label>
+             		</div>  
+	  		
+                                            
+            		<div class="checkbox">
+             		<label>  <input type="checkbox" name="check" value="'40 Long','40 Regular'" class="category" onclick="this.form.submit()">Size 40</label>
+            		</div>
+	  	{% endfor %}
+	  {% endif %}
                        	
   </form>
   	
