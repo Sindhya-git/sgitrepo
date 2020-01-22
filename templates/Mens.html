@@ -140,15 +140,16 @@
 	  <p>{{chkbox_val1, chkbox_val1[0]}}</p>
 	  	{% for chkbox in chkbox_val1 %}
 	  		{% if chkbox == '38' %}
-	  		<div class="checkbox">
-              		<label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category" onclick="this.form.submit()" checked>Size 38 </label>
-             		</div>  
+	  			<div class="checkbox">
+              			<label>   <input type="checkbox" name="check" value="'38 Long','38 Short'" class="category" onclick="this.form.submit()" checked>Size 38 </label>
+             			</div>  
 	  		{% endif %}
                         {% if chkbox == '40' %}                    
             		<div class="checkbox">
              		<label>  <input type="checkbox" name="check" value="'40 Long','40 Regular'" class="category" onclick="this.form.submit()">Size 40</label>
             		</div>
 	  		{% endif %}
+	  	{% endfor %}
 	  {% endif %}
                        	
   </form>
