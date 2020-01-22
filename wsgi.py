@@ -113,11 +113,26 @@ def mens_page():
   print ("in mens page",)
   chkbox_val = request.form.getlist('check')
   print ("chkbox_val1 is :", chkbox_val)
-  
+  chklist = []
+  i=0
   if request.method == "POST":
     print ("in post ",)
     chkbox_val = request.form.getlist('check')
-    print ("chkbox_val is :", chkbox_val[0])
+    print ("chkbox_val is :", chkbox_val)
+    if (chkbox_val.count('38') > 0 ):
+      chklist[i] = '38 Long'
+      chklist[i+1] = '38 Short'
+      i=i+1
+      print ("chklist is :", chklist)
+    if (chkbox_val.count('40') > 0 ):
+      chklist[i] = '40 Long'
+      chklist[i+1] = '40 Regular'
+      i=i+1
+      print ("chklist is :", chklist)
+    if (chkbox_val.count('50') > 0 ):
+      chklist[i] = '50 Long'
+      print ("chklist is :", chklist)
+      
     
     curc = mysql.connection.cursor()
     query1 = "SELECT s.ITEM_NUMBER, s.DESCRIPTION,s.LONG_DESCRIPTION, s.SKU_ATTRIBUTE_VALUE1,s.SKU_ATTRIBUTE_VALUE2,p.LIST_PRICE,p.DISCOUNT"
@@ -125,7 +140,7 @@ def mens_page():
     query3 = " AND s.SKU_ATTRIBUTE_VALUE1 IN %s"
     curcquery = query1 + query2 + query3 
     print("curcquery is:",curcquery) 
-    curc.execute(curcquery, (chkbox_val,))
+    curc.execute(curcquery, (chklist,))
     mcolsize = curc.fetchall()
     print("mcollection is :",mcolsize)
  # Close Connection
