@@ -130,6 +130,33 @@ def mens_page():
     if (chkbox_val.count('50') > 0 ):
       chklist.append('50 Long')
       print ("chklist is :", chklist)
+    if (chkbox_val.count('small') > 0 ):
+      chklist.append('small')
+      chklist.append('Small-Black')
+      chklist.append('Small-Dark Green')
+      print ("chklist is :", chklist)
+    if (chkbox_val.count('medium') > 0 ):
+      chklist.append('Medium')
+      chklist.append('Medium-Black')
+      chklist.append('Medium-Dark Green')
+      print ("chklist is :", chklist)
+    if (chkbox_val.count('large') > 0 ):
+      chklist.append('Large')
+      chklist.append('Large-Black')
+      chklist.append('Large-Dark Green')
+      print ("chklist is :", chklist)
+    if (chkbox_val.count('XL') > 0 ):
+      chklist.append('XL')
+      chklist.append('Xlarge')
+      chklist.append('XLarge-Black')
+      chklist.append('XLarge-Dark Green')
+      print ("chklist is :", chklist)
+    if (chkbox_val.count('XXLarge') > 0 ):
+      chklist.append('XXLarge')
+      chklist.append('XXLarge-Wine Red')
+      chklist.append('XXLarge-Black')
+      chklist.append('XXLarge-Dark Green')
+      print ("chklist is :", chklist)
       
     
     curc = mysql.connection.cursor()
