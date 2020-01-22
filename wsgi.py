@@ -114,23 +114,19 @@ def mens_page():
   chkbox_val = request.form.getlist('check')
   print ("chkbox_val1 is :", chkbox_val)
   chklist = []
-  i=0
+  
   if request.method == "POST":
     print ("in post ",)
     chkbox_val = request.form.getlist('check')
     print ("chkbox_val is :", chkbox_val)
     if (chkbox_val.count('38') > 0 ):
-      chklist[i] = '38 Long'
-      chklist[i+1] = '38 Short'
-      i=i+1
+      chklist.append('38 Long','38 Short')
       print ("chklist is :", chklist)
     if (chkbox_val.count('40') > 0 ):
-      chklist[i] = '40 Long'
-      chklist[i+1] = '40 Regular'
-      i=i+1
+      chklist.append('40 Long','40 Regular')
       print ("chklist is :", chklist)
     if (chkbox_val.count('50') > 0 ):
-      chklist[i] = '50 Long'
+      chklist.append('50 Long')
       print ("chklist is :", chklist)
       
     
