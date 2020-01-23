@@ -15,15 +15,6 @@
   
 <style>
 	
-.vl {
-  border-left: 1px solid grey;
-  height: 500px;
-  position: absolute;
-  left: 17%;
-  margin-left: -3px;
-  top: 35%;
-}
-
 .shirt-container{
   position: absolute;
   top: 35%;
@@ -81,12 +72,12 @@
   		<div class="search-container">
 			<form action="/search" method="get" >
    	       		<input type="text" class="searchTerm" name="q" placeholder="What will you shop for today?">
-      	       		<button type="submit"><i class="fa fa-search"></i></button>
+      	       		<button id="searchsub" type="submit"><i class="fa fa-search"></i></button>
    			</form>
   		</div>
     </div>
 	  
-    <div class="vl"></div>
+    
  
    <div class="container">
    	<div class="row">
@@ -137,7 +128,7 @@
               <label>  <input type="checkbox" name="check" value="XXLarge" class="category" onclick="this.form.submit()">XXL </label>
             </div>
 	  {% else %}
-	  <p>{{cbox}}</p>
+	  
 	  	      
 	  		
 	  		{% if cbox[0] == '38' or cbox[1] == '38' or cbox[2] == '38' or cbox[3] == '38' or cbox[4] == '38' or cbox[5] == '38' or cbox[6] == '38' or cbox[7] == '38' or cbox[8] == '38'%}
