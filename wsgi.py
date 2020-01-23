@@ -87,17 +87,7 @@ def womens_page():
     print ("in post ",)
     chkbox_val = request.form.getlist('check')
     print ("chkbox_val is :", chkbox_val)
-    if (chkbox_val.count('38') > 0 ):
-      chklist.append('38 Long')
-      chklist.append('38 Short')
-      print ("chklist is :", chklist)
-    if (chkbox_val.count('40') > 0 ):
-      chklist.append('40 Long')
-      chklist.append('40 Regular')
-      print ("chklist is :", chklist)
-    if (chkbox_val.count('50') > 0 ):
-      chklist.append('50 Long')
-      print ("chklist is :", chklist)
+    
     if (chkbox_val.count('small') > 0 ):
       chklist.append('small')
       chklist.append('Small-Black')
