@@ -42,6 +42,18 @@
   padding: 5px;
   
 }
+
+.flex-container > div > button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
 	
 .flex-container {
   display: flex;
@@ -67,7 +79,7 @@
   		<div class="search-container">
 			<form action="/search" method="get" >
    	       		<input type="text" class="searchTerm" name="q" placeholder="What will you shop for today?">
-      	       	<button type="submit"><i class="fa fa-search"></i></button>
+      	       		<button type="submit"><i class="fa fa-search"></i></button>
    			</form>
   		</div>
     </div>
@@ -92,8 +104,14 @@
 			 <a href="/{{product.FAMILY_NAME}}?view={{product.ITEM_NUMBER}}">
 			 <img src='static/{{product.ITEM_NUMBER}}.jpg' width=150px>
                           <h5>{{product.DESCRIPTION}}</h5>
-                          <h5>${{product.LIST_PRICE}}</h5>
-			  </a>
+                          <h5>${{product.LIST_PRICE}}</h5></a>
+			  
+			  {% if product.DISCOUNT == "" %}
+			    	<h5 color: grey;>{{product.DISCOUNT}}</h5>
+			    {% else %}
+			 	<h5>{{product.DISCOUNT}}%</h5>
+			    {% endif %}
+			    <p><button>Add to Cart</button></p>
                    </div>
       {% endfor %}
     </div>
