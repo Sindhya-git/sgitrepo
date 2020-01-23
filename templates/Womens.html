@@ -64,9 +64,9 @@
 
 </head>
   <body >
- <div class="panel">
+ 
   <img src='static/title.jpg' width="1280" height="120"> 
- </div>
+ 
  
   <div class="topnav">
   		<a class="active" href="/home">Home</a>
@@ -233,10 +233,14 @@
                             <img src='static/{{product.ITEM_NUMBER}}.jpg' width=150px>
                          </a>
                         
-                            <h5><a href="/">{{product.DESCRIPTION}}</a> </h5>
-                            <h5>{{product.LIST_PRICE}}</h5>
-			    <h5>{{product.DISCOUNT}}</h5>
-			    <p><button>Add to Cart</button></p>
+                            <h5><a href="/">{{product.DESCRIPTION}} </h5>
+                            <h5>${{product.LIST_PRICE}}</h5>
+			    {% if product.DISCOUNT == ""}
+			    	<h5 color: grey;>{{product.DISCOUNT}}</h5>
+			    {% else %}
+			 	<h5>{{product.DISCOUNT}}%</h5>
+			    {% endif %}
+			    <p><button>Add to Cart</button></p></a>
                    </div>
       {% endfor %}
     </div>
