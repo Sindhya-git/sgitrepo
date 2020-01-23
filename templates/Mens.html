@@ -255,7 +255,7 @@
 			 <img src='static/{{product.ITEM_NUMBER}}.jpg' width=150px>
                           <h5>{{product.DESCRIPTION}}</h5>
                           <h5>${{product.LIST_PRICE}}</h5></a>
-			  {% if product.DISCOUNT == "" %}
+			  {% if product.DISCOUNT == "None" %}
 			    	<h5 color: grey;>{{product.DISCOUNT}}</h5>
 			    {% else %}
 			 	<h5>{{product.DISCOUNT}}%</h5>
