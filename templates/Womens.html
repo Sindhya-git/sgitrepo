@@ -235,7 +235,7 @@
                         
                             <h5><a href="/">{{product.DESCRIPTION}} </h5>
                             <h5>${{product.LIST_PRICE}}</h5>
-			    {% if product.DISCOUNT == ""}
+			    {% if product.DISCOUNT == "" %}
 			    	<h5 color: grey;>{{product.DISCOUNT}}</h5>
 			    {% else %}
 			 	<h5>{{product.DISCOUNT}}%</h5>
