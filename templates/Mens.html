@@ -35,6 +35,18 @@
   padding: 5px;
   
 }
+	
+.flex-container > div >a > button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
 
 .check-container {
   list-style-type: none;
@@ -232,6 +244,12 @@
 			 <img src='static/{{product.ITEM_NUMBER}}.jpg' width=150px>
                           <h5>{{product.DESCRIPTION}}</h5>
                           <h5>${{product.LIST_PRICE}}</h5>
+			  {% if product.DISCOUNT == ""}
+			    	<h5 color: grey;>{{product.DISCOUNT}}</h5>
+			    {% else %}
+			 	<h5>{{product.DISCOUNT}}%</h5>
+			    {% endif %}
+			    <p><button>Add to Cart</button></p>
 			  </a>
                    </div>
       {% endfor %}
