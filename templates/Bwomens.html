@@ -106,10 +106,10 @@
                           <h5>{{product.DESCRIPTION}}</h5>
                           <h5>${{product.LIST_PRICE}}</h5></a>
 			  
-			  {% if product.DISCOUNT == "" %}
+			  {% if product.DISCOUNT == None %}
 			    	<h5 color: grey;>{{product.DISCOUNT}}</h5>
 			    {% else %}
-			 	<h5>{{product.DISCOUNT}}%</h5>
+			 	<h5 color: grey;>{{product.DISCOUNT}}%</h5>
 			    {% endif %}
 			    <p><button>Add to Cart</button></p>
                    </div>
