@@ -64,7 +64,7 @@
                       <p >SIZE    :{{ product1.SKU_ATTRIBUTE_VALUE1}}</p>
                       <p >COLOUR  : {{ product1.SKU_ATTRIBUTE_VALUE2}}</p>
                       <p >PRICE   :${{ product1.LIST_PRICE}}</p> 
-                      {% if product1.DISCOUNT == "" or product1.DISCOUNT == "None" %}                      
+                      {% if product1.DISCOUNT == "" or product1.DISCOUNT == None %}                      
                         <p >DISCOUNT:0%</p> 
                       {% else  %}
                         <p >DISCOUNT:{{ product1.DISCOUNT}}%</p>                                                           
