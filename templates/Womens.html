@@ -108,91 +108,91 @@
    		<div class="col-list">
         		<h4>BRANDS</h4>
 		        <div class="list-group">
-				<a href="/women?view=Reflex" class="list-group-item">REFLEX</a>
+					<a href="/women?view=Reflex" class="list-group-item">REFLEX</a>
 			        <a href="/women?view=IWOLLENCE" class="list-group-item">IWOLLENCE</a>
 			        <a href="/women?view=MUSHARE" class="list-group-item">MUSHARE</a>
 			        <a href="/women?view=Disposable" class="list-group-item">WORKFORCE</a>
-			</div>
+				</div>
         	</div>
   	</div>
-  </div>
+</div>
 	  
  <div class="check-container">
-  <form id="chkform" action="/women" role="form" method="post" onsubmit="return false">
+  <form id="chkformw" action="/women" role="form" method="post" onsubmit="return false">
   	<legend>SIZE</legend>
 	   
-	   {% if cbox == null or cbox == "" %}	
+	   {% if cbow == null or cbow == "" %}	
             
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value='small' class="category" onclick="this.form.submit()">Small </label>
-            </div>
+              <label>  <input type="checkbox" name="chkw" value='small' class="chkcatg" onclick="this.form.submit()">Small </label>
+        </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="medium" class="category" onclick="this.form.submit()">Medium</label>
-            </div>
+              <label>  <input type="chkwbox" name="chkw" value="medium" class="chkcatg" onclick="this.form.submit()">Medium</label>
+        </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="large" class="category" onclick="this.form.submit()">Large </label>
-            </div>
+              <label>  <input type="chkwbox" name="chkw" value="large" class="chkcatg" onclick="this.form.submit()">Large </label>
+        </div>
 	    <div class="checkbox">
-		    <label>  <input type="checkbox" name="check" value="XL" class="category" onclick="this.form.submit()">XL </label>
-            </div>
+		    <label>  <input type="chkwbox" name="chkw" value="XL" class="chkcatg" onclick="this.form.submit()">XL </label>
+        </div>
 	    <div class="checkbox">
-              <label>  <input type="checkbox" name="check" value="XXLarge" class="category" onclick="this.form.submit()">XXL </label>
-            </div>
+              <label>  <input type="checkbox" name="chkw" value="XXLarge" class="chkcatg" onclick="this.form.submit()">XXL </label>
+        </div>
 	  {% else %}
 	                          
-	  		{% if cbox[0] == 'small' or cbox[1] == 'small' or cbox[2] == 'small' or cbox[3] == 'small' or cbox[4] == 'small' or cbox[5] == 'small' %}
+	  		{% if cbow[0] == 'small' or cbow[1] == 'small' or cbow[2] == 'small' or cbow[3] == 'small' or cbow[4] == 'small' or cbow[5] == 'small' %}
                     
-            			<div class="checkbox">
-             			<label>  <input type="checkbox" name="check" value='small' class="category" onclick="this.form.submit()" checked>Small </label>
-            			</div>
+            	<div class="checkbox">
+             	<label>  <input type="checkbox" name="chkw" value='small' class="chkcatg" onclick="this.form.submit()" checked>Small </label>
+            	</div>
 	  		{% else %}
 	  			<div class="checkbox">
-             			<label>  <input type="checkbox" name="check" value='small' class="category" onclick="this.form.submit()">Small </label>
-            			</div>
+             	<label>  <input type="checkbox" name="chkw" value='small' class="chkcatg" onclick="this.form.submit()">Small </label>
+            	</div>
 	  		{% endif %}
 	  
-	  		{% if cbox[0] == 'medium' or cbox[1] == 'medium' or cbox[2] == 'medium' or cbox[3] == 'medium' or cbox[4] == 'medium' or cbox[5] == 'medium'%}
+	  		{% if cbow[0] == 'medium' or cbow[1] == 'medium' or cbow[2] == 'medium' or cbow[3] == 'medium' or cbow[4] == 'medium' or cbow[5] == 'medium' %}
 
 	  			<div class="checkbox">
-              			<label>  <input type="checkbox" name="check" value="medium" class="category" onclick="this.form.submit()" checked>Medium</label>
-             			</div>        
+              	<label>  <input type="checkbox" name="chkw" value="medium" class="chkcatg" onclick="this.form.submit()" checked>Medium</label>
+             	</div>        
 	  		{% else %}
 	  			<div class="checkbox">
-              			<label>  <input type="checkbox" name="check" value="medium" class="category" onclick="this.form.submit()">Medium</label>
-             			</div>
+              	<label>  <input type="checkbox" name="chkw" value="medium" class="chkcatg" onclick="this.form.submit()">Medium</label>
+             	</div>
 	  		{% endif %}
                         
-	  		{% if cbox[0] == 'large' or cbox[1] == 'large' or cbox[2] == 'large' or cbox[3] == 'large' or cbox[4] == 'large' or cbox[5] == 'large'%}
+	  		{% if cbow[0] == 'large' or cbow[1] == 'large' or cbow[2] == 'large' or cbow[3] == 'large' or cbow[4] == 'large' or cbow[5] == 'large' %}
                    
-            			<div class="checkbox">
-             			<label>  <input type="checkbox" name="check" value="large" class="category" onclick="this.form.submit()" checked>Large </label>
-            			</div>
+            	<div class="checkbox">
+             	<label>  <input type="checkbox" name="chkw" value="large" class="chkcatg" onclick="this.form.submit()" checked>Large </label>
+            	</div>
 	  		{% else %}
 	  			<div class="checkbox">
-             			<label>  <input type="checkbox" name="check" value="large" class="category" onclick="this.form.submit()">Large </label>
-            			</div>
+             	<label>  <input type="checkbox" name="chkw" value="large" class="chkcatg" onclick="this.form.submit()">Large </label>
+            	</div>
 	  		{% endif %}
 	  		
-	  		{% if cbox[0] == 'XL' or cbox[1] == 'XL' or cbox[2] == 'XL' or cbox[3] == 'XL' or cbox[4] == 'XL' or cbox[5] == 'XL'%}
+	  		{% if cbow[0] == 'XL' or cbow[1] == 'XL' or cbow[2] == 'XL' or cbow[3] == 'XL' or cbow[4] == 'XL' or cbow[5] == 'XL'%}
 
 	  			<div class="checkbox">
-              			<label>  <input type="checkbox" name="check" value="XL" class="category" onclick="this.form.submit()" checked>XL </label>
-             			</div>        
+              	<label>  <input type="checkbox" name="chkw" value="XL" class="chkcatg" onclick="this.form.submit()" checked>XL </label>
+             	</div>        
 	  		{% else %}
 	  			<div class="checkbox">
-              			<label>  <input type="checkbox" name="check" value="XL" class="category" onclick="this.form.submit()">XL </label>
-             			</div>
+              	<label>  <input type="checkbox" name="chkw" value="XL" class="chkcatg" onclick="this.form.submit()">XL </label>
+             	</div>
 	  		{% endif %}
                         
-	  		{% if cbox[0] == 'XXLarge' or cbox[1] == 'XXLarge' or cbox[2] == 'XXLarge' or cbox[3] == 'XXLarge' or cbox[4] == 'XXLarge' or cbox[5] == 'XXLarge'%}
+	  		{% if cbow[0] == 'XXLarge' or cbow[1] == 'XXLarge' or cbow[2] == 'XXLarge' or cbow[3] == 'XXLarge' or cbow[4] == 'XXLarge' or cbow[5] == 'XXLarge'%}
                   
-            			<div class="checkbox">
-             			<label>  <input type="checkbox" name="check" value="XXLarge" class="category" onclick="this.form.submit()" checked>XXL </label>
-            			</div>
+            	<div class="checkbox">
+             	<label>  <input type="checkbox" name="chkw" value="XXLarge" class="chkcatg" onclick="this.form.submit()" checked>XXL </label>
+            	</div>
 	  		{% else %}
 	  			<div class="checkbox">
-             			<label>  <input type="checkbox" name="check" value="XXLarge" class="category" onclick="this.form.submit()">XXL </label>
-            			</div>
+             	<label>  <input type="checkbox" name="chkw" value="XXLarge" class="chkcatg" onclick="this.form.submit()">XXL </label>
+            	</div>
 	  		{% endif %}
 	  	
 	  {% endif %}
@@ -212,13 +212,13 @@
                         
                             <h5><a href="/">{{product.DESCRIPTION}} </h5>
                             <h5>${{product.LIST_PRICE}}</h5></a>
-			    {% if product.DISCOUNT == None %}
-			    	<h5 color: grey;>{{product.DISCOUNT}}</h5>
-			    {% else %}
-			 	<h5 color: grey;>{{product.DISCOUNT}}%</h5>
-			    {% endif %}
-			    <p><button>Add to Cart</button></p>
-                   </div>
+			    			{% if product.DISCOUNT == None %}
+					    	<h5 color: grey;>0.0%</h5>
+						    {% else %}
+						 	<h5 color: grey;>{{product.DISCOUNT}}%</h5>
+						    {% endif %}
+						    <p><button>Add to Cart</button></p>
+                </div>
       {% endfor %}
     </div>
  
