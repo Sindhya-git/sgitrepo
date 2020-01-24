@@ -23,30 +23,27 @@
   top: 30%;
 }
    
-prdt1-container.row {
-  margin: 8px -16px;
-}
-
-/* Add padding BETWEEN each column */
-.prdt1-container.row,
-.prdt1-container.row > .column {
-  padding: 8px;
-}
-
-.prdt1-container.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
- 
-    .prdt1-container.row.column.div.img {
+.prdt1-container {
   
-  padding-left:10px;
-  margin: auto;
-  border: 1px #69e7f0;
-  background-color: #afecf7;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+  position: absolute;
+  left: 10%;
+  margin-left: -3px;
+  top: 30%;
+}
+   
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
   </style>
 </head>
 
@@ -58,7 +55,7 @@ prdt1-container.row {
       <div class="row">
             {% for product1 in prdtdetail %}
                  <div class="column">
-                    <img class="card-img""  src="static/{{product1.ITEM_NUMBER}}.jpg" alt="" border="3" style="width:100%;hspace="40"">
+                    <img class="card-img""  src="static/{{product1.ITEM_NUMBER}}.jpg" alt="" border="3" style="width:90%;">
                  </div>
                  <div class="column" >          
                       <h2>Product Detail</h2>
