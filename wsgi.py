@@ -75,17 +75,17 @@ def getTextFromSpeech():
     print ("response of speech is :",text_output)
     return Response(response=text_output, mimetype='plain/text')
   
-@application.route("/women")
+@application.route("/women", methods=['POST', 'GET'])
 def womens_page():
   print ("in womens page",)
   
-  chkbox_val = request.form.getlist('check')
+  chkbox_val = request.form.getlist('chkw')
   print ("chkbox_val1 is :", chkbox_val)
   chklist = []
   
   if request.method == "POST":
     print ("in post ",)
-    chkbox_val = request.form.getlist('check')
+    chkbox_val = request.form.getlist('chkw')
     print ("chkbox_val is :", chkbox_val)
     
     if (chkbox_val.count('small') > 0 ):
@@ -128,7 +128,7 @@ def womens_page():
     print("wcollection is :",wcolsize)
  # Close Connection
     curwc.close()
-    return render_template('Womens.html', womcol=wcolsize,cbox=chkbox_val)
+    return render_template('Womens.html', womcol=wcolsize,cbow=chkbox_val)
   
   if 'view' in request.args:
     bname = request.args['view']
